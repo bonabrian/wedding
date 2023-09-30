@@ -31,17 +31,15 @@ const FrontCover = ({
         'flex items-center justify-center fixed bottom-0 left-0 h-screen w-screen',
       )}
     >
-      <m.div
-        className={cn('flex items-center p-0 w-screen h-screen')}
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.2, ease: 'easeIn' }}
-        exit={{ y: -100, opacity: 0, transition: { duration: 0.2 } }}
-      >
-        <div
+      <div className={cn('flex items-center p-0 w-screen h-screen')}>
+        <m.div
           className={cn(
             'bg-front-cover bg-center bg-no-repeat bg-cover h-screen p-16 w-full',
           )}
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.2, ease: 'easeIn' }}
+          exit={{ y: -100, opacity: 0 }}
         >
           <div
             className={cn('absolute top-0 left-0 h-full w-full bg-black/70')}
@@ -56,7 +54,7 @@ const FrontCover = ({
                 className={cn('text-center mb-8', 'md:mb-12', 'lg:mb-16')}
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.25 }}
+                transition={{ delay: 0.5 }}
               >
                 <h2
                   className={cn(
@@ -85,7 +83,7 @@ const FrontCover = ({
                 )}
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.35 }}
+                transition={{ delay: 0.6 }}
               >
                 <h1 className={cn('text-red font-semibold')}>
                   {maleName} & {femaleName}
@@ -99,7 +97,7 @@ const FrontCover = ({
                 )}
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.45 }}
+                transition={{ delay: 0.7 }}
               >
                 <p className={cn('text-white')}>Kepada Yth:</p>
                 <p className={cn('text-red')}>{guestName}</p>
@@ -107,7 +105,7 @@ const FrontCover = ({
               <m.div
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.55 }}
+                transition={{ delay: 1 }}
               >
                 <button
                   className={cn(
@@ -123,8 +121,8 @@ const FrontCover = ({
               </m.div>
             </div>
           </div>
-        </div>
-      </m.div>
+        </m.div>
+      </div>
     </section>
   )
 }
