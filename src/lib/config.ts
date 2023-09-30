@@ -3,16 +3,22 @@ import type { SnowfallProps } from 'react-snowfall'
 interface Bride {
   nickName: string
   fullName: string
+  birthOrder: string
+  image: string
 }
 
 export const groom: Bride = {
   nickName: 'Bona',
   fullName: 'Bona Brian Siagian',
+  birthOrder: 'Putra Pertama',
+  image: 'https://placehold.co/400x600/black/white',
 }
 
 export const bride: Bride = {
   nickName: 'Silvia',
   fullName: 'Silvia Novianty Sitorus',
+  birthOrder: 'Putri Pertama',
+  image: 'https://placehold.co/400x600/9f80ff/white',
 }
 
 export const weddingDate = '2024-04-20'

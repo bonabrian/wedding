@@ -14,7 +14,7 @@ import ScrollToTop from './scroll-to-top'
 
 const Content = () => {
   const [isPlaying, setIsPlaying] = useState(false)
-  const [showCover, setShowCover] = useState(false)
+  const [showCover, setShowCover] = useState(true)
 
   const searchParams = useSearchParams()
   const guestName = searchParams.get('guest')

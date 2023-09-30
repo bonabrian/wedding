@@ -13,7 +13,7 @@ const Heading = ({ title, caption, description }: HeadingProps) => {
   return (
     <div
       className={cn(
-        'relative flex flex-col justify-center text-center mb-8 z-10',
+        'relative flex flex-col justify-center text-center mb-32 z-10',
       )}
     >
       <h3 className={cn('font-cormorant-upright text-foreground text-4xl')}>
@@ -24,7 +24,7 @@ const Heading = ({ title, caption, description }: HeadingProps) => {
       </h1>
       {description && (
         <p
-          className={cn('mt-12 text-foreground text-lg font-cormorant-upright')}
+          className={cn('mt-8 text-foreground text-xl font-cormorant-upright')}
         >
           {description}
         </p>
