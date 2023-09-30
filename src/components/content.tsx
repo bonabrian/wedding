@@ -10,7 +10,7 @@ import FrontCover from './front-cover'
 import Hero from './hero'
 import ScrollToTop from './scroll-to-top'
 
-const Onboarding = () => {
+const Content = () => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [showCover, setShowCover] = useState(true)
 
@@ -78,4 +78,4 @@ const Onboarding = () => {
   )
 }
 
-export default Onboarding
+export default Content

@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 
-import Onboarding from '@/components/onboarding'
+import Content from '@/components/content'
 
 export const metadata: Metadata = {
   title: 'Undangan Pernikahan Bona & Silvia',
 }
 
 const HomePage = () => {
-  return <Onboarding />
+  return <Content />
 }
 
 export default HomePage
