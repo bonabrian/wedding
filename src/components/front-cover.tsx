@@ -80,9 +80,9 @@ const FrontCover = ({
               </m.div>
               <m.div
                 className={cn(
-                  'text-center text-6xl mb-8',
-                  'md:text-7xl md:mb-12',
-                  'lg:text-9xl lg:mb-16',
+                  'text-center text-6xl mb-48',
+                  'md:text-7xl md:mb-32',
+                  'lg:text-9xl lg:mb-28',
                 )}
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -94,9 +94,9 @@ const FrontCover = ({
               </m.div>
               <m.div
                 className={cn(
-                  'text-center mb-8 text-xl',
+                  'text-center mb-4 text-xl',
                   'md:text-2xl',
-                  'lg:text-3xl',
+                  'lg:text-3xl lg:mb-6',
                 )}
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
