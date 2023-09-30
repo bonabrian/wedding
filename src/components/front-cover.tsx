@@ -1,8 +1,10 @@
 'use client'
 
 import { m } from 'framer-motion'
+import Snowfall from 'react-snowfall'
 
 import cn from '@/lib/cn'
+import { snowfall } from '@/lib/config'
 
 import { Envelope } from './icons'
 
@@ -33,6 +35,15 @@ const FrontCover = ({
         'flex items-center justify-center fixed bottom-0 left-0 h-screen w-screen',
       )}
     >
+      <Snowfall
+        color={snowfall.color}
+        style={snowfall.style}
+        speed={snowfall.speed}
+        wind={snowfall.wind}
+        radius={snowfall.radius}
+        snowflakeCount={snowfall.snowflakeCount}
+      />
+
       <div className={cn('flex items-center p-0 w-screen h-screen')}>
         <m.div
           className={cn(
