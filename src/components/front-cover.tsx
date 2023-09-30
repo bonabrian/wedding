@@ -9,8 +9,8 @@ import { snowfall } from '@/lib/config'
 import { Envelope } from './icons'
 
 interface FrontCoverProps {
-  maleName: string
-  femaleName: string
+  groom: string
+  bride: string
   guestName?: string | null
   guestPartner?: string | null
   date: Date
@@ -18,8 +18,8 @@ interface FrontCoverProps {
 }
 
 const FrontCover = ({
-  maleName,
-  femaleName,
+  groom,
+  bride,
   guestName,
   guestPartner,
   date,
@@ -82,17 +82,19 @@ const FrontCover = ({
               </p>
             </m.div>
             <m.div
-              className={cn(
-                'text-center text-6xl mb-48',
-                'md:text-7xl md:mb-32',
-                'lg:text-9xl lg:mb-28',
-              )}
+              className={cn('text-center mb-48', 'md:mb-32', 'lg:mb-28')}
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.6 }}
             >
-              <h1 className={cn('text-red font-semibold')}>
-                {maleName} & {femaleName}
+              <h1
+                className={cn(
+                  'text-red font-semibold text-6xl',
+                  'md:text-7xl',
+                  'lg:text-9xl',
+                )}
+              >
+                {groom} & {bride}
               </h1>
             </m.div>
             <m.div

@@ -16,8 +16,8 @@ const Onboarding = () => {
     <>
       {showCover ? (
         <FrontCover
-          maleName="Bona"
-          femaleName="Silvia"
+          groom="Bona"
+          bride="Silvia"
           guestName={guestName}
           guestPartner={guestPartner}
           date={new Date('2024-04-20')}
