@@ -36,7 +36,7 @@ const FrontCover = ({
       <div className={cn('flex items-center p-0 w-screen h-screen')}>
         <m.div
           className={cn(
-            'bg-front-cover bg-center bg-no-repeat bg-cover h-screen w-full',
+            'bg-front-cover bg-center bg-no-repeat bg-cover h-screen w-full p-4',
             'md:p-16',
           )}
           initial={{ y: -100, opacity: 0 }}
