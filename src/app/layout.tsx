@@ -9,6 +9,8 @@ import {
 
 import cn from '@/lib/cn'
 
+import ClientLayout from './client.layout'
+
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 const cormorantUpright = CormorantUpright({
@@ -43,7 +45,9 @@ export default function RootLayout({
         corinthia.variable,
       )}
     >
-      <body>{children}</body>
+      <body>
+        <ClientLayout>{children}</ClientLayout>
+      </body>
     </html>
   )
 }

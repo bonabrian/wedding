@@ -1,3 +1,7 @@
+'use client'
+
+import { m } from 'framer-motion'
+
 import cn from '@/lib/cn'
 
 import { Envelope } from './icons'
@@ -7,6 +11,7 @@ interface FrontCoverProps {
   femaleName: string
   guestName: string
   date: Date
+  onOpenInvitation: () => void
 }
 
 const FrontCover = ({
@@ -14,6 +19,7 @@ const FrontCover = ({
   femaleName,
   guestName,
   date,
+  onOpenInvitation,
 }: FrontCoverProps) => {
   const day = date.getDate()
   const month = `0${date.getMonth() + 1}`.slice(-2)
@@ -25,7 +31,13 @@ const FrontCover = ({
         'flex items-center justify-center fixed bottom-0 left-0 h-screen w-screen',
       )}
     >
-      <div className={cn('flex items-center p-0 w-screen h-screen')}>
+      <m.div
+        className={cn('flex items-center p-0 w-screen h-screen')}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.2, ease: 'easeIn' }}
+        exit={{ y: -100, opacity: 0, transition: { duration: 0.2 } }}
+      >
         <div
           className={cn(
             'bg-front-cover bg-center bg-no-repeat bg-cover h-screen p-16 w-full',
@@ -40,35 +52,79 @@ const FrontCover = ({
                 'flex flex-col justify-center items-center w-full font-cormorant-upright',
               )}
             >
-              <div className={cn('text-center mb-16')}>
-                <h1 className={cn('text-red text-5xl')}>Undangan Pernikahan</h1>
-                <p className={cn('text-white text-3xl font-bold')}>
+              <m.div
+                className={cn('text-center mb-8', 'md:mb-12', 'lg:mb-16')}
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.25 }}
+              >
+                <h2
+                  className={cn(
+                    'text-red text-3xl',
+                    'md:text-4xl',
+                    'lg:text-5xl',
+                  )}
+                >
+                  Undangan Pernikahan
+                </h2>
+                <p
+                  className={cn(
+                    'text-white font-bold text-xl',
+                    'md:text-2xl',
+                    'lg:text-3xl',
+                  )}
+                >
                   {day} . {month} . {year}
                 </p>
-              </div>
-              <div className={cn('text-center mb-16 text-9xl')}>
-                <h1 className={cn('text-red font-semibold tracking-tight')}>
+              </m.div>
+              <m.div
+                className={cn(
+                  'text-center text-6xl mb-8',
+                  'md:text-7xl md:mb-12',
+                  'lg:text-9xl lg:mb-16',
+                )}
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.35 }}
+              >
+                <h1 className={cn('text-red font-semibold')}>
                   {maleName} & {femaleName}
                 </h1>
-              </div>
-              <div className={cn('text-center mb-8 text-3xl')}>
+              </m.div>
+              <m.div
+                className={cn(
+                  'text-center mb-8 text-xl',
+                  'md:text-2xl',
+                  'lg:text-3xl',
+                )}
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.45 }}
+              >
                 <p className={cn('text-white')}>Kepada Yth:</p>
                 <p className={cn('text-red')}>{guestName}</p>
-              </div>
-              <div>
+              </m.div>
+              <m.div
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.55 }}
+              >
                 <button
                   className={cn(
-                    'bg-red text-white py-2 px-4 rounded-md flex gap-2 items-center',
+                    'bg-red text-white py-2 px-3.5 rounded-md flex gap-2 items-center transition-colors duration-150 ease-in-out text-sm',
+                    'hover:bg-red/90',
+                    'md:px-4 md:text-base',
                   )}
+                  onClick={onOpenInvitation}
                 >
                   <Envelope />
                   <span>Buka Undangan</span>
                 </button>
-              </div>
+              </m.div>
             </div>
           </div>
         </div>
-      </div>
+      </m.div>
     </section>
   )
 }

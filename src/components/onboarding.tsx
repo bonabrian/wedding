@@ -15,6 +15,7 @@ const Onboarding = () => {
           femaleName="Silvia"
           guestName="Grace & Partner"
           date={new Date('2024-04-20')}
+          onOpenInvitation={() => setShowCover(false)}
         />
       ) : (
         <div>Opened</div>
