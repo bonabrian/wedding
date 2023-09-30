@@ -21,6 +21,9 @@ export const weddingDate = '2024-04-20'
 export const frontCoverImage = '/assets/images/front-cover.png'
 export const introImage = '/assets/images/front-cover.png'
 
+// audio
+export const mainAudio = '/assets/audio/audio.mp3'
+
 export const snowfall: SnowfallProps = {
   color: '#BB4A4A',
   speed: [0, 1],

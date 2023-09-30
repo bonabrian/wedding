@@ -4,6 +4,8 @@ import { AnimatePresence } from 'framer-motion'
 import { useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 
+import { mainAudio } from '@/lib/config'
+
 import AudioPlayer from './audio-player'
 import Container from './container'
 import FrontCover from './front-cover'
@@ -67,7 +69,7 @@ const Content = () => {
             </p>
           </Container>
           <AudioPlayer
-            src="/assets/audio/audio.mp3"
+            src={mainAudio}
             isPlaying={isPlaying}
             togglePlay={() => setIsPlaying(!isPlaying)}
           />
