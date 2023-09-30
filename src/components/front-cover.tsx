@@ -1,41 +1,32 @@
 'use client'
 
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Snowfall from 'react-snowfall'
 
 import cn from '@/lib/cn'
-import { snowfall } from '@/lib/config'
+import { bride, groom, snowfall, weddingDate } from '@/lib/config'
 
 import { Envelope } from './icons'
 
 interface FrontCoverProps {
-  groom: string
-  bride: string
   guestName?: string | null
   guestPartner?: string | null
-  date: Date
   onOpenInvitation: () => void
 }
 
 const FrontCover = ({
-  groom,
-  bride,
   guestName,
   guestPartner,
-  date,
   onOpenInvitation,
 }: FrontCoverProps) => {
+  const date = new Date(weddingDate)
+
   const day = date.getDate()
   const month = `0${date.getMonth() + 1}`.slice(-2)
   const year = date.getFullYear()
 
   return (
-    <m.section
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.2, ease: 'easeIn' }}
-      exit={{ y: -100, opacity: 0 }}
-    >
+    <section>
       <div className={cn('relative')}>
         <div
           className={cn(
@@ -56,11 +47,12 @@ const FrontCover = ({
               'flex flex-col justify-center items-center w-full font-cormorant-upright h-screen',
             )}
           >
-            <m.div
+            <motion.div
               className={cn('text-center mb-8', 'md:mb-12', 'lg:mb-16')}
-              initial={{ y: -10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.5 }}
+              initial={{ x: -500, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: 500, opacity: 0 }}
+              transition={{ delay: 0.5, type: 'spring', duration: 2 }}
             >
               <h2
                 className={cn(
@@ -80,12 +72,13 @@ const FrontCover = ({
               >
                 {day} . {month} . {year}
               </p>
-            </m.div>
-            <m.div
+            </motion.div>
+            <motion.div
               className={cn('text-center mb-48', 'md:mb-32', 'lg:mb-28')}
-              initial={{ y: -10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.6 }}
+              initial={{ x: 500, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -500, opacity: 0 }}
+              transition={{ delay: 0.5, type: 'spring', duration: 2 }}
             >
               <h1
                 className={cn(
@@ -94,30 +87,28 @@ const FrontCover = ({
                   'lg:text-9xl',
                 )}
               >
-                {groom} & {bride}
+                {groom.nickName} & {bride.nickName}
               </h1>
-            </m.div>
-            <m.div
-              className={cn(
-                'text-center mb-4 text-xl',
-                'md:text-2xl',
-                'lg:text-3xl lg:mb-6',
-              )}
-              initial={{ y: -10, opacity: 0 }}
+            </motion.div>
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.7 }}
+              exit={{ y: 50, opacity: 0 }}
+              transition={{ delay: 0.5, type: 'spring', duration: 2 }}
             >
-              <p className={cn('text-white')}>Kepada Yth:</p>
-              <p className={cn('text-red')}>
-                {guestName ?? ''}
-                {guestPartner ? ` & ${guestPartner}` : ''}
-              </p>
-            </m.div>
-            <m.div
-              initial={{ y: 10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 1 }}
-            >
+              <div
+                className={cn(
+                  'text-center mb-4 text-xl',
+                  'md:text-2xl',
+                  'lg:text-3xl lg:mb-6',
+                )}
+              >
+                <p className={cn('text-white')}>Kepada Yth:</p>
+                <p className={cn('text-red')}>
+                  {guestName ?? ''}
+                  {guestPartner ? ` & ${guestPartner}` : ''}
+                </p>
+              </div>
               <button
                 className={cn(
                   'bg-red text-white py-2 px-3.5 rounded-md flex gap-2 items-center transition-colors duration-150 ease-in-out text-sm',
@@ -129,11 +120,11 @@ const FrontCover = ({
                 <Envelope />
                 <span>Buka Undangan</span>
               </button>
-            </m.div>
+            </motion.div>
           </div>
         </div>
       </div>
-    </m.section>
+    </section>
   )
 }
 

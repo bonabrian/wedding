@@ -10,6 +10,7 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'front-cover': "url('/assets/images/front-cover.png')",
+        hero: "url('/assets/images/front-cover.png')",
       },
       fontFamily: {
         sans: ['var(--font-inter)', ...fontFamily.sans],

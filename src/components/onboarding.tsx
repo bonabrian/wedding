@@ -1,9 +1,11 @@
 'use client'
 
+import { AnimatePresence } from 'framer-motion'
 import { useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 
 import FrontCover from './front-cover'
+import Hero from './hero'
 
 const Onboarding = () => {
   const [showCover, setShowCover] = useState(true)
@@ -13,20 +15,19 @@ const Onboarding = () => {
   const guestPartner = searchParams.get('partner')
 
   return (
-    <>
+    <AnimatePresence>
       {showCover ? (
         <FrontCover
-          groom="Bona"
-          bride="Silvia"
           guestName={guestName}
           guestPartner={guestPartner}
-          date={new Date('2024-04-20')}
           onOpenInvitation={() => setShowCover(false)}
         />
       ) : (
-        <div>Opened</div>
+        <>
+          <Hero />
+        </>
       )}
-    </>
+    </AnimatePresence>
   )
 }
 
