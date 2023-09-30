@@ -5,16 +5,9 @@ const config: Config = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'front-cover': "url('/assets/images/front-cover.png')",
-        hero: "url('/assets/images/front-cover.png')",
-      },
       fontFamily: {
         sans: ['var(--font-inter)', ...fontFamily.sans],
-        corinthia: ['var(--font-corinthia)', ...fontFamily.sans],
+        rochester: ['var(--font-rochester)', ...fontFamily.sans],
         'cormorant-upright': [
           'var(--font-cormorant-upright)',
           ...fontFamily.sans,
@@ -22,6 +15,8 @@ const config: Config = {
       },
       colors: {
         red: '#BB4A4A',
+        accent: '#6D1E1E',
+        foreground: '#515151',
       },
     },
   },

@@ -20,6 +20,7 @@ export const weddingDate = '2024-04-20'
 // images
 export const frontCoverImage = '/assets/images/front-cover.png'
 export const introImage = '/assets/images/front-cover.png'
+export const batakArt = '/assets/images/batak-art.png'
 
 // audio
 export const mainAudio = '/assets/audio/audio.mp3'

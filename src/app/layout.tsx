@@ -2,9 +2,9 @@ import './globals.css'
 
 import type { Metadata } from 'next'
 import {
-  Corinthia,
   Cormorant_Upright as CormorantUpright,
   Inter,
+  Rochester,
 } from 'next/font/google'
 
 import cn from '@/lib/cn'
@@ -19,9 +19,9 @@ const cormorantUpright = CormorantUpright({
   weight: ['500', '600', '700'],
 })
 
-const corinthia = Corinthia({
+const rochester = Rochester({
   subsets: ['latin'],
-  variable: '--font-corinthia',
+  variable: '--font-rochester',
   weight: ['400'],
 })
 
@@ -42,7 +42,7 @@ export default function RootLayout({
       className={cn(
         inter.variable,
         cormorantUpright.variable,
-        corinthia.variable,
+        rochester.variable,
       )}
     >
       <body>

@@ -7,14 +7,14 @@ import { useState } from 'react'
 import { mainAudio } from '@/lib/config'
 
 import AudioPlayer from './audio-player'
-import Container from './container'
 import FrontCover from './front-cover'
+import GroomAndBride from './groom-and-bride'
 import Hero from './hero'
 import ScrollToTop from './scroll-to-top'
 
 const Content = () => {
   const [isPlaying, setIsPlaying] = useState(false)
-  const [showCover, setShowCover] = useState(true)
+  const [showCover, setShowCover] = useState(false)
 
   const searchParams = useSearchParams()
   const guestName = searchParams.get('guest')
@@ -36,38 +36,7 @@ const Content = () => {
       ) : (
         <>
           <Hero />
-          <Container>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-              aperiam ex suscipit assumenda nihil quisquam unde debitis quam,
-              mollitia dolore consectetur facere. Atque aliquid pariatur
-              incidunt, molestias eveniet similique nostrum?
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-              aperiam ex suscipit assumenda nihil quisquam unde debitis quam,
-              mollitia dolore consectetur facere. Atque aliquid pariatur
-              incidunt, molestias eveniet similique nostrum?
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-              aperiam ex suscipit assumenda nihil quisquam unde debitis quam,
-              mollitia dolore consectetur facere. Atque aliquid pariatur
-              incidunt, molestias eveniet similique nostrum?
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-              aperiam ex suscipit assumenda nihil quisquam unde debitis quam,
-              mollitia dolore consectetur facere. Atque aliquid pariatur
-              incidunt, molestias eveniet similique nostrum?
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-              aperiam ex suscipit assumenda nihil quisquam unde debitis quam,
-              mollitia dolore consectetur facere. Atque aliquid pariatur
-              incidunt, molestias eveniet similique nostrum?
-            </p>
-          </Container>
+          <GroomAndBride />
           <AudioPlayer
             src={mainAudio}
             isPlaying={isPlaying}
