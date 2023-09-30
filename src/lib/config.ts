@@ -9,7 +9,5 @@ export const snowfall: SnowfallProps = {
   style: {
     opacity: 0.4,
     zIndex: 1,
-    width: '100vw',
-    height: '100vh',
   },
 }

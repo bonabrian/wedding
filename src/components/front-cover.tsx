@@ -30,117 +30,108 @@ const FrontCover = ({
   const year = date.getFullYear()
 
   return (
-    <section
-      className={cn(
-        'flex items-center justify-center fixed bottom-0 left-0 h-screen w-screen',
-      )}
+    <m.section
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.2, ease: 'easeIn' }}
+      exit={{ y: -100, opacity: 0 }}
     >
-      <Snowfall
-        color={snowfall.color}
-        style={snowfall.style}
-        speed={snowfall.speed}
-        wind={snowfall.wind}
-        radius={snowfall.radius}
-        snowflakeCount={snowfall.snowflakeCount}
-      />
-
-      <div className={cn('flex items-center p-0 w-screen h-screen')}>
-        <m.div
+      <div className={cn('relative')}>
+        <div
           className={cn(
-            'bg-front-cover bg-center bg-no-repeat bg-cover h-screen w-full p-4',
-            'md:p-16',
+            'bg-front-cover h-screen bg-cover bg-no-repeat bg-scroll bg-center inset-0 filter brightness-[0.3]',
           )}
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.2, ease: 'easeIn' }}
-          exit={{ y: -100, opacity: 0 }}
-        >
+        />
+        <Snowfall
+          color={snowfall.color}
+          style={snowfall.style}
+          speed={snowfall.speed}
+          wind={snowfall.wind}
+          radius={snowfall.radius}
+          snowflakeCount={snowfall.snowflakeCount}
+        />
+        <div className={cn('absolute top-0 left-0 bottom-0 right-0')}>
           <div
-            className={cn('absolute top-0 left-0 h-full w-full bg-black/70')}
-          />
-          <div className={cn('flex items-center relative mx-auto h-full')}>
-            <div
-              className={cn(
-                'flex flex-col justify-center items-center w-full font-cormorant-upright',
-              )}
+            className={cn(
+              'flex flex-col justify-center items-center w-full font-cormorant-upright h-screen',
+            )}
+          >
+            <m.div
+              className={cn('text-center mb-8', 'md:mb-12', 'lg:mb-16')}
+              initial={{ y: -10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.5 }}
             >
-              <m.div
-                className={cn('text-center mb-8', 'md:mb-12', 'lg:mb-16')}
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5 }}
-              >
-                <h2
-                  className={cn(
-                    'text-red text-3xl',
-                    'md:text-4xl',
-                    'lg:text-5xl',
-                  )}
-                >
-                  Undangan Pernikahan
-                </h2>
-                <p
-                  className={cn(
-                    'text-white font-bold text-xl',
-                    'md:text-2xl',
-                    'lg:text-3xl',
-                  )}
-                >
-                  {day} . {month} . {year}
-                </p>
-              </m.div>
-              <m.div
+              <h2
                 className={cn(
-                  'text-center text-6xl mb-48',
-                  'md:text-7xl md:mb-32',
-                  'lg:text-9xl lg:mb-28',
+                  'text-red text-3xl',
+                  'md:text-4xl',
+                  'lg:text-5xl',
                 )}
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.6 }}
               >
-                <h1 className={cn('text-red font-semibold')}>
-                  {maleName} & {femaleName}
-                </h1>
-              </m.div>
-              <m.div
+                Undangan Pernikahan
+              </h2>
+              <p
                 className={cn(
-                  'text-center mb-4 text-xl',
+                  'text-white font-bold text-xl',
                   'md:text-2xl',
-                  'lg:text-3xl lg:mb-6',
+                  'lg:text-3xl',
                 )}
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.7 }}
               >
-                <p className={cn('text-white')}>Kepada Yth:</p>
-                <p className={cn('text-red')}>
-                  {guestName ?? ''}
-                  {guestPartner ? ` & ${guestPartner}` : ''}
-                </p>
-              </m.div>
-              <m.div
-                initial={{ y: 10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 1 }}
+                {day} . {month} . {year}
+              </p>
+            </m.div>
+            <m.div
+              className={cn(
+                'text-center text-6xl mb-48',
+                'md:text-7xl md:mb-32',
+                'lg:text-9xl lg:mb-28',
+              )}
+              initial={{ y: -10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.6 }}
+            >
+              <h1 className={cn('text-red font-semibold')}>
+                {maleName} & {femaleName}
+              </h1>
+            </m.div>
+            <m.div
+              className={cn(
+                'text-center mb-4 text-xl',
+                'md:text-2xl',
+                'lg:text-3xl lg:mb-6',
+              )}
+              initial={{ y: -10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.7 }}
+            >
+              <p className={cn('text-white')}>Kepada Yth:</p>
+              <p className={cn('text-red')}>
+                {guestName ?? ''}
+                {guestPartner ? ` & ${guestPartner}` : ''}
+              </p>
+            </m.div>
+            <m.div
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 1 }}
+            >
+              <button
+                className={cn(
+                  'bg-red text-white py-2 px-3.5 rounded-md flex gap-2 items-center transition-colors duration-150 ease-in-out text-sm',
+                  'hover:bg-red/90',
+                  'md:px-4 md:text-base',
+                )}
+                onClick={onOpenInvitation}
               >
-                <button
-                  className={cn(
-                    'bg-red text-white py-2 px-3.5 rounded-md flex gap-2 items-center transition-colors duration-150 ease-in-out text-sm',
-                    'hover:bg-red/90',
-                    'md:px-4 md:text-base',
-                  )}
-                  onClick={onOpenInvitation}
-                >
-                  <Envelope />
-                  <span>Buka Undangan</span>
-                </button>
-              </m.div>
-            </div>
+                <Envelope />
+                <span>Buka Undangan</span>
+              </button>
+            </m.div>
           </div>
-        </m.div>
+        </div>
       </div>
-    </section>
+    </m.section>
   )
 }
 
