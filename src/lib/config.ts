@@ -17,6 +17,10 @@ export const bride: Bride = {
 
 export const weddingDate = '2024-04-20'
 
+// images
+export const frontCoverImage = '/assets/images/front-cover.png'
+export const introImage = '/assets/images/front-cover.png'
+
 export const snowfall: SnowfallProps = {
   color: '#BB4A4A',
   speed: [0, 1],
