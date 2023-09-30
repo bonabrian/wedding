@@ -9,7 +9,8 @@ import { Envelope } from './icons'
 interface FrontCoverProps {
   maleName: string
   femaleName: string
-  guestName: string
+  guestName?: string | null
+  guestPartner?: string | null
   date: Date
   onOpenInvitation: () => void
 }
@@ -18,6 +19,7 @@ const FrontCover = ({
   maleName,
   femaleName,
   guestName,
+  guestPartner,
   date,
   onOpenInvitation,
 }: FrontCoverProps) => {
@@ -100,7 +102,10 @@ const FrontCover = ({
                 transition={{ delay: 0.7 }}
               >
                 <p className={cn('text-white')}>Kepada Yth:</p>
-                <p className={cn('text-red')}>{guestName}</p>
+                <p className={cn('text-red')}>
+                  {guestName ?? ''}
+                  {guestPartner ? ` & ${guestPartner}` : ''}
+                </p>
               </m.div>
               <m.div
                 initial={{ y: 10, opacity: 0 }}
