@@ -2,11 +2,18 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import type { ComponentProps } from 'react'
 import Snowfall from 'react-snowfall'
 
 import cn from '@/lib/cn'
 import { bride, groom, introImage, snowfall, weddingDate } from '@/lib/config'
 import { monthNames } from '@/lib/constants'
+
+import BatakTraditionalHouseImage from '../../public/assets/images/batak-traditional-house.svg'
+
+const BatakTraditionalHouse = ({ ...rest }: ComponentProps<'svg'>) => {
+  return <BatakTraditionalHouseImage {...rest} />
+}
 
 const Hero = () => {
   const date = new Date(weddingDate)
@@ -50,14 +57,8 @@ const Hero = () => {
           transition={{ delay: 0.5, type: 'spring', duration: 2 }}
         >
           <div className={cn('relative z-10 w-32 h-48', 'lg:w-36 lg:h-52')}>
-            <Image
-              src="/assets/images/rumah-batak.png"
-              alt="Rumah Batak"
-              fill
-              className={cn(
-                'filter saturate-200 hue-rotate-90 blur-0 contrast-0 brightness-0',
-              )}
-              sizes="(max-width: 768px) 100vw, 50vw"
+            <BatakTraditionalHouse
+              className={cn('w-full mx-auto fill-secondary')}
             />
           </div>
           <h3 className={cn('uppercase text-2xl text-white font-semibold')}>
