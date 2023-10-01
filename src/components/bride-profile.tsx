@@ -5,6 +5,8 @@ import cn from '@/lib/cn'
 interface BrideProfileProps {
   name: string
   birthOrder: string
+  fatherName: string
+  motherName: string
   image: string
   reverse?: boolean
 }
@@ -12,6 +14,8 @@ interface BrideProfileProps {
 const BrideProfile = ({
   name,
   birthOrder,
+  fatherName,
+  motherName,
   image,
   reverse,
 }: BrideProfileProps) => {
@@ -51,11 +55,22 @@ const BrideProfile = ({
         <div className={cn('mb-4')}>
           <h3
             className={cn(
-              'text-foreground text-2xl font-semibold font-cormorant-upright',
+              'text-foreground text-2xl font-semibold font-cormorant-upright mb-8',
             )}
           >
-            {birthOrder}
+            {birthOrder} dari
           </h3>
+          <p
+            className={cn(
+              'text-secondary font-cormorant-upright leading-tight text-xl',
+            )}
+          >
+            {fatherName}
+            <br />
+            &
+            <br />
+            {motherName}
+          </p>
         </div>
       </div>
     </div>

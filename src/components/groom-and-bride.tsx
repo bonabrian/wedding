@@ -21,11 +21,15 @@ const GroomAndBride = () => {
             name={groom.fullName}
             image={groom.image}
             birthOrder={groom.birthOrder}
+            fatherName={groom.fatherName}
+            motherName={groom.motherName}
           />
           <BrideProfile
             name={bride.fullName}
             image={bride.image}
             birthOrder={bride.birthOrder}
+            fatherName={bride.fatherName}
+            motherName={bride.motherName}
             reverse
           />
         </div>

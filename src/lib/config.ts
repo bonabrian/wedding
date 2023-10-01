@@ -4,20 +4,26 @@ interface Bride {
   nickName: string
   fullName: string
   birthOrder: string
+  fatherName: string
+  motherName: string
   image: string
 }
 
 export const groom: Bride = {
   nickName: 'Bona',
   fullName: 'Bona Brian Siagian',
-  birthOrder: 'Putra Pertama',
+  birthOrder: 'Putra',
+  fatherName: 'Bpk. Salomo Siagian',
+  motherName: 'Ibu Monika Purba',
   image: 'https://placehold.co/400x600/black/white',
 }
 
 export const bride: Bride = {
   nickName: 'Silvia',
   fullName: 'Silvia Novianty Sitorus',
-  birthOrder: 'Putri Pertama',
+  birthOrder: 'Putri',
+  fatherName: 'Bpk. Sarbini Sitorus',
+  motherName: 'Ibu Elsa Agustina Sirait ✞',
   image: 'https://placehold.co/400x600/9f80ff/white',
 }
 
@@ -26,7 +32,6 @@ export const weddingDate = '2024-04-20'
 // images
 export const frontCoverImage = '/assets/images/front-cover.png'
 export const introImage = '/assets/images/front-cover.png'
-export const batakArt = '/assets/images/batak-art.png'
 
 // audio
 export const mainAudio = '/assets/audio/audio.mp3'
