@@ -25,7 +25,7 @@ const BrideProfile = ({
     >
       <div
         className={cn(
-          'flex relative aspect-[2/3] rounded-full shadow-[0px_0px_0px_8px_#6D1E1E]',
+          'flex relative aspect-[2/3] rounded-full shadow-[0px_0px_0px_2px_#6D1E1E]',
           'basis-3/4',
           'md:basis-full',
         )}
