@@ -22,30 +22,37 @@ const BrideProfile = ({
   return (
     <div
       className={cn(
-        'flex items-stretch justify-stretch gap-12 flex-grow-0',
+        'flex items-stretch justify-stretch gap-3',
         reverse ? 'flex-row-reverse' : 'flex-row',
-        'md:flex-col',
+        'md:flex-col md:gap-12',
       )}
     >
       <div
         className={cn(
-          'flex relative aspect-[2/3] rounded-full shadow-[0px_0px_0px_2px_#6D1E1E]',
-          'basis-3/4',
-          'md:basis-full',
+          'flex relative aspect-[2/3] rounded-full shadow-[0px_0px_0px_2px_#6D1E1E] basis-1/2',
+          'lg:basis-full',
         )}
       >
-        <Image src={image} alt={name} fill className={cn('rounded-full')} />
+        <Image
+          src={image}
+          alt={name}
+          fill
+          className={cn('rounded-full object-cover')}
+        />
       </div>
       <div
         className={cn(
-          'flex flex-col items-center justify-end text-center',
-          'md:justify-center',
+          'flex flex-col items-center justify-end text-center basis-1/2',
+          'md:justify-center md:basis-0',
         )}
       >
-        <div className={cn('pb-8 mb-4 border-b-2 border-b-foreground')}>
+        <div
+          className={cn('pb-4 mb-4 border-b-2 border-b-foreground', 'md:pb-8')}
+        >
           <h1
             className={cn(
-              'text-accent font-cormorant-upright font-bold text-4xl tracking-tighter',
+              'text-accent font-cormorant-upright font-bold text-3xl tracking-tighter',
+              'md:text-4xl',
               'lg:text-5xl',
             )}
           >
@@ -55,14 +62,16 @@ const BrideProfile = ({
         <div className={cn('mb-4')}>
           <h3
             className={cn(
-              'text-foreground text-2xl font-semibold font-cormorant-upright mb-8',
+              'text-foreground text-xl font-semibold font-cormorant-upright mb-4',
+              'md:text-2xl md:mb-8',
             )}
           >
             {birthOrder} dari
           </h3>
           <p
             className={cn(
-              'text-secondary font-cormorant-upright leading-tight text-xl',
+              'text-secondary font-cormorant-upright leading-none text-base',
+              'md:text-xl md:leading-tight',
             )}
           >
             {fatherName}
