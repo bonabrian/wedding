@@ -1,5 +1,5 @@
 import cn from '@/lib/cn'
-import { weddingDate } from '@/lib/config'
+import { ceremonyDate } from '@/lib/config'
 
 import BackgroundPattern from './background-pattern'
 import CountdownTimer from './countdown-timer'
@@ -13,8 +13,8 @@ const Countdown = () => {
         caption="Hitung Mundur"
         inverseColor
       />
-      <div className={cn('flex items-center justify-center')}>
-        <CountdownTimer date={weddingDate} />
+      <div className={cn('flex flex-col items-center justify-center gap-4')}>
+        <CountdownTimer date={ceremonyDate} />
       </div>
     </BackgroundPattern>
   )

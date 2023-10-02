@@ -12,6 +12,7 @@ import FrontCover from './front-cover'
 import GroomAndBride from './groom-and-bride'
 import Hero from './hero'
 import ScrollToTop from './scroll-to-top'
+import Venue from './venue'
 
 const Content = () => {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -39,6 +40,7 @@ const Content = () => {
           <Hero />
           <GroomAndBride />
           <Countdown />
+          <Venue />
           <AudioPlayer
             src={mainAudio}
             isPlaying={isPlaying}

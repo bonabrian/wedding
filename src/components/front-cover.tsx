@@ -7,10 +7,10 @@ import Snowfall from 'react-snowfall'
 import cn from '@/lib/cn'
 import {
   bride,
+  ceremonyDate,
   frontCoverImage,
   groom,
   snowfall,
-  weddingDate,
 } from '@/lib/config'
 
 import { Envelope } from './icons'
@@ -26,7 +26,7 @@ const FrontCover = ({
   guestPartner,
   onOpenInvitation,
 }: FrontCoverProps) => {
-  const date = new Date(weddingDate)
+  const date = new Date(ceremonyDate)
 
   const day = date.getDate()
   const month = `0${date.getMonth() + 1}`.slice(-2)

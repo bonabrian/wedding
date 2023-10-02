@@ -12,3 +12,13 @@ export const monthNames = [
   'November',
   'Desember',
 ]
+
+export const dayNames = [
+  'Minggu',
+  'Senin',
+  'Selasa',
+  'Rabu',
+  'Kamis',
+  'Jumat',
+  'Sabtu',
+]

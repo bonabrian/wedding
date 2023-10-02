@@ -6,7 +6,7 @@ import type { ComponentProps } from 'react'
 import Snowfall from 'react-snowfall'
 
 import cn from '@/lib/cn'
-import { bride, groom, introImage, snowfall, weddingDate } from '@/lib/config'
+import { bride, ceremonyDate, groom, introImage, snowfall } from '@/lib/config'
 import { monthNames } from '@/lib/constants'
 
 import BatakTraditionalHouseImage from '../../public/assets/images/batak-traditional-house.svg'
@@ -16,7 +16,7 @@ const BatakTraditionalHouse = ({ ...rest }: ComponentProps<'svg'>) => {
 }
 
 const Hero = () => {
-  const date = new Date(weddingDate)
+  const date = new Date(ceremonyDate)
   const day = date.getDate()
   const month = monthNames[date.getMonth()]
   const year = date.getFullYear()

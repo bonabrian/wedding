@@ -59,16 +59,17 @@ const Heading = ({
           {description}
         </p>
       )}
-      <div className={cn('absolute top-0 left-0 w-full -z-[5]')}>
-        <GorgaBatak
-          className={cn(
-            'mx-auto w-3/5 opacity-5',
-            'md:w-1/2',
-            'lg:w-1/3',
-            inverseColor ? 'fill-white' : 'fill-[#6D1E1E]',
-          )}
-        />
-      </div>
+      {!inverseColor && (
+        <div className={cn('absolute top-0 left-0 w-full -z-[5]')}>
+          <GorgaBatak
+            className={cn(
+              'mx-auto w-3/5 opacity-5 fill-[#6D1E1E]',
+              'md:w-1/2',
+              'lg:w-1/3',
+            )}
+          />
+        </div>
+      )}
     </div>
   )
 }
