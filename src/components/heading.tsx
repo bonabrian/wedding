@@ -1,11 +1,17 @@
+import type { ComponentProps } from 'react'
+
 import cn from '@/lib/cn'
 
-import GorgaBatak from './gorga-batak'
+import GorgaBatakImage from '../../public/assets/images/gorga-batak.svg'
 
 interface HeadingProps {
   title: string
   caption: string
   description?: string
+}
+
+const GorgaBatak = ({ ...rest }: ComponentProps<'svg'>) => {
+  return <GorgaBatakImage {...rest} />
 }
 
 const Heading = ({ title, caption, description }: HeadingProps) => {
