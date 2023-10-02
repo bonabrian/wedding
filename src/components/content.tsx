@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { mainAudio } from '@/lib/config'
 
 import AudioPlayer from './audio-player'
+import Countdown from './countdown'
 import FrontCover from './front-cover'
 import GroomAndBride from './groom-and-bride'
 import Hero from './hero'
@@ -14,7 +15,7 @@ import ScrollToTop from './scroll-to-top'
 
 const Content = () => {
   const [isPlaying, setIsPlaying] = useState(false)
-  const [showCover, setShowCover] = useState(true)
+  const [showCover, setShowCover] = useState(false)
 
   const searchParams = useSearchParams()
   const guestName = searchParams.get('guest')
@@ -37,6 +38,7 @@ const Content = () => {
         <>
           <Hero />
           <GroomAndBride />
+          <Countdown />
           <AudioPlayer
             src={mainAudio}
             isPlaying={isPlaying}

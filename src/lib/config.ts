@@ -27,7 +27,7 @@ export const bride: Bride = {
   image: 'https://placehold.co/400x600/9f80ff/white',
 }
 
-export const weddingDate = '2024-04-20'
+export const weddingDate = 'April 20, 2024 11:00:00 UTC+07:00'
 
 // images
 export const frontCoverImage = '/assets/images/front-cover.png'

@@ -8,13 +8,19 @@ interface HeadingProps {
   title: string
   caption: string
   description?: string
+  inverseColor?: boolean
 }
 
 const GorgaBatak = ({ ...rest }: ComponentProps<'svg'>) => {
   return <GorgaBatakImage {...rest} />
 }
 
-const Heading = ({ title, caption, description }: HeadingProps) => {
+const Heading = ({
+  title,
+  caption,
+  description,
+  inverseColor,
+}: HeadingProps) => {
   return (
     <div
       className={cn(
@@ -25,17 +31,19 @@ const Heading = ({ title, caption, description }: HeadingProps) => {
     >
       <h3
         className={cn(
-          'font-cormorant-upright text-foreground text-3xl',
+          'font-cormorant-upright text-foreground text-3xl mb-8',
           'md:text-4xl',
+          inverseColor ? 'text-white' : 'text-foreground',
         )}
       >
         {caption}
       </h3>
       <h1
         className={cn(
-          'text-accent font-bold font-rochester text-6xl',
+          'font-bold font-rochester text-6xl',
           'md:text-7xl',
           'lg:text-8xl',
+          inverseColor ? 'text-white' : 'text-accent',
         )}
       >
         {title}
@@ -45,6 +53,7 @@ const Heading = ({ title, caption, description }: HeadingProps) => {
           className={cn(
             'mt-8 text-foreground font-cormorant-upright text-lg',
             'md:text-xl',
+            inverseColor ? 'text-white' : 'text-foreground',
           )}
         >
           {description}
@@ -53,9 +62,10 @@ const Heading = ({ title, caption, description }: HeadingProps) => {
       <div className={cn('absolute top-0 left-0 w-full -z-[5]')}>
         <GorgaBatak
           className={cn(
-            'mx-auto w-3/5 opacity-5 fill-[#6D1E1E]',
+            'mx-auto w-3/5 opacity-5',
             'md:w-1/2',
             'lg:w-1/3',
+            inverseColor ? 'fill-white' : 'fill-[#6D1E1E]',
           )}
         />
       </div>
