@@ -16,7 +16,7 @@ import Venue from './venue'
 
 const Content = () => {
   const [isPlaying, setIsPlaying] = useState(false)
-  const [showCover, setShowCover] = useState(false)
+  const [showCover, setShowCover] = useState(true)
 
   const searchParams = useSearchParams()
   const guestName = searchParams.get('guest')
