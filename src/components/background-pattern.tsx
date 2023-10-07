@@ -37,9 +37,10 @@ const BackgroundPattern = ({
             <Waves />
           </div>
         )}
+        {/* https://pngtree.com/freebackground/batak-ethnic-seamless-pattern-motif-ulos_1170429.html */}
         <div
           className={cn(
-            'flex bg-fixed bg-contain bg-center bg-[url("/assets/images/batak-pattern.png")] absolute top-0 left-0 w-full h-full opacity-[0.07]',
+            'flex bg-fixed bg-contain bg-center bg-[url("/assets/images/batak-pattern.png")] absolute top-0 left-0 w-full h-full opacity-[0.1]',
           )}
         />
         <Container>{children}</Container>
