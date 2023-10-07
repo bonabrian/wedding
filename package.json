@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^5.4.1",
     "@svgr/webpack": "^8.1.0",
     "framer-motion": "^10.16.4",
     "moment": "^2.29.4",
@@ -33,6 +34,7 @@
     "eslint-plugin-unused-imports": "^3.0.0",
     "postcss": "latest",
     "prettier": "^3.0.3",
+    "prisma": "^5.4.1",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "latest",
     "typescript": "latest"
