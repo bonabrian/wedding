@@ -9,11 +9,15 @@ import GuestbookEntry from './guestbook-entry'
 
 interface GuestbookEntriesProps {
   entries?: Guestbook[]
+  shouldScrollToTop?: boolean
 }
 
 const ENTRIES_HEIGHT = 320
 
-const GuestbookEntries = ({ entries }: GuestbookEntriesProps) => {
+const GuestbookEntries = ({
+  entries,
+  shouldScrollToTop,
+}: GuestbookEntriesProps) => {
   const entriesRef = useRef<HTMLDivElement | null>(null)
   const [entriesHeight, setEntriesHeight] = useState(ENTRIES_HEIGHT)
 
@@ -34,6 +38,12 @@ const GuestbookEntries = ({ entries }: GuestbookEntriesProps) => {
       window.removeEventListener('resize', handleResize)
     }
   }, [])
+
+  useEffect(() => {
+    if (entriesRef.current && shouldScrollToTop) {
+      entriesRef.current.scrollTop = 0
+    }
+  }, [shouldScrollToTop])
 
   return (
     <div

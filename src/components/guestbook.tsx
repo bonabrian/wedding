@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import useGuestbook from '@/hooks/use-guestbook'
 import cn from '@/lib/cn'
 import type { Guest } from '@/types/guest'
@@ -13,11 +15,17 @@ interface GuestbookProps {
 
 const Guestbook = ({ guest }: GuestbookProps) => {
   const { entires, addEntry, mutate } = useGuestbook()
+  const [shouldScrollToTop, setShouldScrollToTop] = useState(false)
 
   const handleOnSubmit = async (message: string) => {
     try {
       await addEntry({ guest: guest?.slug ?? '', message })
       mutate()
+      setShouldScrollToTop(true)
+
+      setTimeout(() => {
+        setShouldScrollToTop(false)
+      }, 100)
     } catch (err) {
       console.error('An error occurred handleOnSubmit: ', err)
     }
@@ -31,11 +39,14 @@ const Guestbook = ({ guest }: GuestbookProps) => {
       />
       <div
         className={cn(
-          'flex flex-col z-10 border border-accent/60 rounded-lg px-8 py-12 space-y-8',
+          'flex flex-col z-10 border border-accent/60 rounded-lg px-8 py-12 space-y-4',
         )}
       >
         <GuestbookForm guest={guest?.name ?? 'N/A'} onSubmit={handleOnSubmit} />
-        <GuestbookEntries entries={entires} />
+        <GuestbookEntries
+          entries={entires}
+          shouldScrollToTop={shouldScrollToTop}
+        />
       </div>
     </BackgroundPattern>
   )

@@ -38,9 +38,12 @@ const GuestbookForm = ({ guest, onSubmit }: GuestbookFormProps) => {
   }
 
   return (
-    <form onSubmit={handleOnSubmit} className={cn('space-y-4')}>
+    <form
+      onSubmit={handleOnSubmit}
+      className={cn('space-y-4 font-cormorant-upright')}
+    >
       <div className={cn('flex flex-col gap-2')}>
-        <label htmlFor="name" className={cn('text-foreground')}>
+        <label htmlFor="name" className={cn('text-foreground font-bold')}>
           Nama
         </label>
         <input
@@ -56,7 +59,7 @@ const GuestbookForm = ({ guest, onSubmit }: GuestbookFormProps) => {
         />
       </div>
       <div className={cn('flex flex-col gap-2')}>
-        <label htmlFor="message" className={cn('text-foreground')}>
+        <label htmlFor="message" className={cn('text-foreground font-bold')}>
           Ucapan
         </label>
         <textarea

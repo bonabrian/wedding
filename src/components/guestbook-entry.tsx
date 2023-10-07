@@ -11,42 +11,37 @@ interface GuestbookEntryProps {
 }
 
 const formatDatetime = (dateTime: Date) => {
-  return moment(dateTime).locale('id').format('dddd, DD MMM yyyy HH:mm')
+  return moment(dateTime).fromNow()
 }
 
 const GuestbookEntry = ({ entry }: GuestbookEntryProps) => {
   return (
-    <div className={cn('flex items-start gap-3 px-3')}>
+    <div className={cn('flex items-start gap-3 font-cormorant-upright')}>
       <Image
         src={`https://avatar.oxro.io/avatar.svg?name=${entry.guest.name}&background=random&length=1&caps=1&fontSize=250&bold=true`}
-        width={40}
-        height={40}
+        width={32}
+        height={32}
         alt={entry.guest.name}
         className={cn('rounded-full aspect-square')}
       />
       <div className={cn('space-y-1')}>
-        <div
-          className={cn(
-            'flex flex-col items-start gap-3',
-            'md:flex-row md:items-center',
-          )}
-        >
-          <div className={cn('flex items-center gap-2')}>
-            <div className={cn('font-semibold text-sm')}>
+        <div className={cn('flex flex-col items-start mb-2')}>
+          <div className={cn('flex')}>
+            <div className={cn('font-bold text-foreground')}>
               {entry.guest.name}
+              <div className={cn('text-secondary text-sm')}>
+                {formatDatetime(entry.createdAt)}
+              </div>
             </div>
           </div>
         </div>
-        <div className={cn('flex items-center gap-3 group')}>
+        <div className={cn('flex items-center gap-3')}>
           <p
             className={cn(
-              'w-fit bg-input/20 rounded-md py-2 px-3 rounded-tl-none flex flex-col gap-4',
+              'w-fit bg-input/10 rounded-md py-2 px-3 rounded-tl-none flex flex-col',
             )}
           >
             {entry.message}
-            <div className={cn('text-muted-foreground text-xs')}>
-              {formatDatetime(entry.createdAt)}
-            </div>
           </p>
         </div>
       </div>
