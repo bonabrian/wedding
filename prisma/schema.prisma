@@ -12,7 +12,7 @@ datasource db {
 }
 
 model Guest {
-  id        BigInt    @id @default(autoincrement())
+  id        Int    @id @default(autoincrement())
   slug      String    @db.VarChar(255)
   name      String    @db.VarChar(255)
   createdAt DateTime  @default(now()) @db.DateTime(6)
@@ -29,8 +29,8 @@ enum Attendance {
 }
 
 model Guestbook {
-  id              BigInt        @id @default(autoincrement())
-  guestId         BigInt?       @unique
+  id              Int        @id @default(autoincrement())
+  guestId         Int?       @unique
   guest           Guest?        @relation(fields: [guestId], references: [id], onDelete: Cascade)
   attendance      Attendance    @default(NOTCONFIRMED)
   numberOfGuest   Int           @default(1)

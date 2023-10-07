@@ -16,15 +16,15 @@ import {
 import { Envelope } from './icons'
 
 interface FrontCoverProps {
-  guestName?: string | null
-  guestPartner?: string | null
+  guest?: string | null
   onOpenInvitation: () => void
+  invitedGuest: boolean
 }
 
 const FrontCover = ({
-  guestName,
-  guestPartner,
+  guest,
   onOpenInvitation,
+  invitedGuest,
 }: FrontCoverProps) => {
   const date = new Date(ceremonyDate)
 
@@ -103,29 +103,32 @@ const FrontCover = ({
           exit={{ y: 50, opacity: 0 }}
           transition={{ delay: 0.5, type: 'spring', duration: 2 }}
         >
-          <div
-            className={cn(
-              'text-center mb-4 text-xl',
-              'md:text-2xl',
-              'lg:text-3xl lg:mb-6',
-            )}
-          >
-            <p className={cn('text-white')}>Kepada Yth:</p>
-            <p className={cn('text-red')}>
-              {guestName ?? ''}
-              {guestPartner ? ` & ${guestPartner}` : ''}
-            </p>
-          </div>
+          {invitedGuest && (
+            <div
+              className={cn(
+                'text-center mb-4 text-xl',
+                'md:text-2xl',
+                'lg:text-3xl lg:mb-6',
+              )}
+            >
+              <p className={cn('text-white')}>Kepada Yth:</p>
+              <p className={cn('text-red')}>{guest}</p>
+            </div>
+          )}
           <button
             className={cn(
               'bg-red text-white py-2 px-3.5 rounded-md flex gap-2 items-center transition-colors duration-150 ease-in-out text-sm',
               'hover:bg-red/90',
               'md:px-4 md:text-base',
+              'disabled:opacity-80 disabled:cursor-not-allowed',
             )}
             onClick={onOpenInvitation}
+            disabled={!invitedGuest}
           >
             <Envelope />
-            <span>Buka Undangan</span>
+            <span>
+              {invitedGuest ? 'Buka Undangan' : 'Maaf, Khusus Tamu Undangan!'}
+            </span>
           </button>
         </motion.div>
       </div>
