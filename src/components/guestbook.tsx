@@ -15,16 +15,16 @@ interface GuestbookProps {
 
 const Guestbook = ({ guest }: GuestbookProps) => {
   const { entires, addEntry, mutate } = useGuestbook()
-  const [shouldScrollToTop, setShouldScrollToTop] = useState(false)
+  const [resetPage, setResetPage] = useState(false)
 
   const handleOnSubmit = async (message: string) => {
     try {
       await addEntry({ guest: guest?.slug ?? '', message })
       mutate()
-      setShouldScrollToTop(true)
+      setResetPage(true)
 
       setTimeout(() => {
-        setShouldScrollToTop(false)
+        setResetPage(false)
       }, 100)
     } catch (err) {
       console.error('An error occurred handleOnSubmit: ', err)
@@ -43,10 +43,7 @@ const Guestbook = ({ guest }: GuestbookProps) => {
         )}
       >
         <GuestbookForm guest={guest?.name ?? 'N/A'} onSubmit={handleOnSubmit} />
-        <GuestbookEntries
-          entries={entires}
-          shouldScrollToTop={shouldScrollToTop}
-        />
+        <GuestbookEntries entries={entires} resetPage={resetPage} />
       </div>
     </BackgroundPattern>
   )
