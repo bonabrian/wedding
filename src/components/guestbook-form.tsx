@@ -40,7 +40,7 @@ const GuestbookForm = ({ guest, onSubmit }: GuestbookFormProps) => {
   return (
     <form
       onSubmit={handleOnSubmit}
-      className={cn('space-y-4 font-cormorant-upright')}
+      className={cn('space-y-4 font-cormorant-upright text-lg')}
     >
       <div className={cn('flex flex-col gap-2')}>
         <label htmlFor="name" className={cn('text-foreground font-bold')}>
@@ -48,7 +48,7 @@ const GuestbookForm = ({ guest, onSubmit }: GuestbookFormProps) => {
         </label>
         <input
           className={cn(
-            'rounded-lg border-transparent border-0 text-foreground px-4 py-2',
+            'rounded-lg border-transparent border-0 text-foreground px-4 py-2 text-lg',
             'focus:outline-none focus:ring-2 focus:ring-input',
           )}
           type="text"
@@ -64,7 +64,7 @@ const GuestbookForm = ({ guest, onSubmit }: GuestbookFormProps) => {
         </label>
         <textarea
           className={cn(
-            'rounded-lg border-transparent border-0 text-foreground px-4 py-2',
+            'rounded-lg border-transparent border-0 text-foreground px-4 py-2 text-lg',
             'focus:outline-none focus:ring-2 focus:ring-input',
             formError && !message && 'ring-red focus:ring-red',
           )}
