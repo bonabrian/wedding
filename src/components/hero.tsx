@@ -50,7 +50,7 @@ const Hero = () => {
         )}
       >
         <motion.div
-          className={cn('mb-5')}
+          className={cn('mb-5 flex flex-col justify-center items-center')}
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -50, opacity: 0 }}
