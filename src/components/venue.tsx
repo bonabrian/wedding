@@ -7,7 +7,7 @@ import Heading from './heading'
 
 const Venue = () => {
   return (
-    <BackgroundPattern topWaves>
+    <BackgroundPattern topWaves bottomWaves>
       <Heading
         title="Pernikahan"
         caption="Waktu & Tempat"

@@ -2,7 +2,6 @@ import type { MutatorCallback, SWRConfiguration } from 'swr'
 import useSWR from 'swr'
 
 import fetcher from '@/lib/fetcher'
-import type { ErrorException } from '@/types/error'
 
 interface SwrData<T = unknown> {
   data?: T
@@ -14,21 +13,12 @@ interface SwrData<T = unknown> {
   ) => Promise<T | undefined>
 }
 
-const useRequest = <T>(
-  url: string,
-  options?: SWRConfiguration,
-): SwrData<T | ErrorException> => {
-  const { data, isLoading, error, mutate } = useSWR<T | ErrorException>(
-    url,
-    fetcher,
-    options,
-  )
-
-  const exception = error as ErrorException
+const useRequest = <T>(url: string, options?: SWRConfiguration): SwrData<T> => {
+  const { data, isLoading, error, mutate } = useSWR<T>(url, fetcher, options)
 
   return {
     data,
-    error: exception,
+    error,
     mutate,
     loading: isLoading,
   }

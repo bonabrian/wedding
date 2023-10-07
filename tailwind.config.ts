@@ -18,9 +18,10 @@ const config: Config = {
         accent: '#6D1E1E',
         foreground: '#515151',
         secondary: '#8B8B8B',
+        input: '#DB7B7B',
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 }
 export default config

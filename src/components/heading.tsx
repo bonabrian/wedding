@@ -6,7 +6,7 @@ import GorgaBatakImage from '../../public/assets/images/gorga-batak.svg'
 
 interface HeadingProps {
   title: string
-  caption: string
+  caption?: string
   description?: string
   inverseColor?: boolean
 }
@@ -29,15 +29,17 @@ const Heading = ({
         'lg:mb-32',
       )}
     >
-      <h3
-        className={cn(
-          'font-cormorant-upright text-foreground text-3xl mb-8',
-          'md:text-4xl',
-          inverseColor ? 'text-white' : 'text-foreground',
-        )}
-      >
-        {caption}
-      </h3>
+      {caption && (
+        <h3
+          className={cn(
+            'font-cormorant-upright text-foreground text-3xl mb-8',
+            'md:text-4xl',
+            inverseColor ? 'text-white' : 'text-foreground',
+          )}
+        >
+          {caption}
+        </h3>
+      )}
       <h1
         className={cn(
           'font-bold font-rochester text-6xl',

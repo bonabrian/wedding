@@ -11,9 +11,12 @@ import AudioPlayer from './audio-player'
 import Countdown from './countdown'
 import FrontCover from './front-cover'
 import GroomAndBride from './groom-and-bride'
+import Guestbook from './guestbook'
 import Hero from './hero'
+import RSVP from './rsvp'
 import ScrollToTop from './scroll-to-top'
 import Venue from './venue'
+// import WeddingGift from './wedding-gift'
 
 const Content = () => {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -23,7 +26,7 @@ const Content = () => {
   const searchParams = useSearchParams()
   const slug = searchParams.get('to')
 
-  const { guest, error } = useGuest(slug ?? '')
+  const { guest } = useGuest(slug ?? '')
 
   const onOpenInvitation = () => {
     setShowCover(false)
@@ -31,10 +34,10 @@ const Content = () => {
   }
 
   useEffect(() => {
-    if (error?.status === 404 || !slug) {
+    if ((guest && !('id' in guest)) || !slug) {
       setInvitedGuest(false)
     }
-  }, [error, slug])
+  }, [guest, slug])
 
   return (
     <AnimatePresence>
@@ -50,6 +53,9 @@ const Content = () => {
           <GroomAndBride />
           <Countdown />
           <Venue />
+          <RSVP guest={guest} />
+          <Guestbook guest={guest} />
+          {/* <WeddingGift /> */}
           <AudioPlayer
             src={mainAudio}
             isPlaying={isPlaying}

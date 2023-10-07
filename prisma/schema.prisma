@@ -16,7 +16,8 @@ model Guest {
   slug      String    @db.VarChar(255)
   name      String    @db.VarChar(255)
   createdAt DateTime  @default(now()) @db.DateTime(6)
-  guestbook Guestbook?
+  rsvp      RSVP?
+  guestbook Guestbook[]
 
   @@map("guests")
 }
@@ -28,12 +29,23 @@ enum Attendance {
   NOTCONFIRMED
 }
 
+model RSVP {
+  id            Int         @id @default(autoincrement())
+  guestId       Int?        @unique
+  attendance    Attendance  @default(NOTCONFIRMED)
+  numberOfGuest Int         @default(1)
+  createdAt     DateTime    @default(now()) @db.DateTime(6)
+  updatedAt     DateTime    @default(now()) @db.DateTime(6)
+  guest         Guest?      @relation(fields: [guestId], references: [id], onDelete: Cascade)
+
+  @@index([guestId])
+  @@map("rsvp")
+}
+
 model Guestbook {
-  id              Int        @id @default(autoincrement())
-  guestId         Int?       @unique
+  id              Int           @id @default(autoincrement())
+  guestId         Int?
   guest           Guest?        @relation(fields: [guestId], references: [id], onDelete: Cascade)
-  attendance      Attendance    @default(NOTCONFIRMED)
-  numberOfGuest   Int           @default(1)
   message         String        @db.VarChar(1024)
   createdAt       DateTime      @default(now()) @db.DateTime(6)
   userAgent       String?

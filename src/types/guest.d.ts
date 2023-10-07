@@ -1,5 +1,5 @@
 export interface Guest {
-  id: string
+  id: number
   slug: string
   name: string
 }
