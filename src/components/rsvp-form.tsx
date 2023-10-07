@@ -59,15 +59,17 @@ const RSVPForm = ({ guest, onSubmit }: RSVPFormProps) => {
   return (
     <form
       onSubmit={handleOnSubmit}
-      className={cn('space-y-4 border border-white rounded-lg px-8 py-12')}
+      className={cn(
+        'space-y-4 border border-white rounded-lg px-8 py-12 font-cormorant-upright text-lg',
+      )}
     >
       <div className={cn('flex flex-col gap-2')}>
-        <label htmlFor="name" className={cn('text-white')}>
+        <label htmlFor="name" className={cn('text-white font-bold')}>
           Nama
         </label>
         <input
           className={cn(
-            'rounded-lg bg-input border-transparent border-0 text-white px-4 py-2',
+            'rounded-lg bg-input border-transparent border-0 text-white px-4 py-2 text-lg',
             'focus:outline-none focus:ring-2 focus:ring-white',
           )}
           type="text"
@@ -79,7 +81,7 @@ const RSVPForm = ({ guest, onSubmit }: RSVPFormProps) => {
       </div>
       <div className={cn('flex flex-col gap-2')}>
         <div className={cn('flex')}>
-          <label htmlFor="numberOfGuest" className={cn('text-white')}>
+          <label htmlFor="numberOfGuest" className={cn('text-white font-bold')}>
             Jumlah Tamu
           </label>
         </div>
@@ -97,7 +99,7 @@ const RSVPForm = ({ guest, onSubmit }: RSVPFormProps) => {
               />
               <label
                 htmlFor={`numberOfGuest-${value}`}
-                className="block text-sm font-medium leading-6 text-white"
+                className="block text-xl font-medium leading-6 text-white"
               >
                 {value}
               </label>
@@ -117,7 +119,7 @@ const RSVPForm = ({ guest, onSubmit }: RSVPFormProps) => {
         )}
       </div>
       <div className={cn('flex flex-col gap-2')}>
-        <label htmlFor="numberOfGuest" className={cn('text-white')}>
+        <label htmlFor="numberOfGuest" className={cn('text-white text-lg')}>
           Konfirmasi Kehadiran
         </label>
         <div className={cn('flex flex-col gap-y-4')}>
@@ -136,7 +138,7 @@ const RSVPForm = ({ guest, onSubmit }: RSVPFormProps) => {
                 />
                 <label
                   htmlFor={`attendance-${key}`}
-                  className="block text-sm font-medium leading-6 text-white"
+                  className="block text-lg font-medium leading-6 text-white"
                 >
                   {attendanceLabel[key as keyof typeof Attendance]}
                 </label>
