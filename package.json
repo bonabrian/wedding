@@ -17,6 +17,7 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-photo-view": "^1.2.3",
     "react-snowfall": "^1.2.1",
     "swr": "^2.2.4"
   },

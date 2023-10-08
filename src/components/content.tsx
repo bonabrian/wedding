@@ -10,10 +10,10 @@ import useGuest from '@/hooks/use-guest'
 import AudioPlayer from './audio-player'
 import Countdown from './countdown'
 import FrontCover from './front-cover'
-import Gallery from './gallery'
 import GroomAndBride from './groom-and-bride'
 import Guestbook from './guestbook'
 import Hero from './hero'
+import Moments from './moments'
 import RSVP from './rsvp'
 import ScrollToTop from './scroll-to-top'
 import Venue from './venue'
@@ -54,7 +54,7 @@ const Content = () => {
           <GroomAndBride />
           <Countdown />
           <Venue />
-          <Gallery />
+          <Moments />
           <RSVP guest={guest} />
           <Guestbook guest={guest} />
           {/* <WeddingGift /> */}
