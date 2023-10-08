@@ -95,6 +95,7 @@ const FrontCover = ({
           </h1>
         </motion.div>
         <motion.div
+          className={cn('flex flex-col justify-center items-center')}
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 50, opacity: 0 }}
