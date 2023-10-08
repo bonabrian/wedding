@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
 import { calendarUrl } from '@/data/site'
+import { weddingEvents } from '@/data/wedding-events'
 import cn from '@/lib/cn'
-import { ceremonyDate } from '@/lib/config'
 
 import BackgroundPattern from '../background-pattern'
 import Heading from '../heading'
@@ -10,6 +10,8 @@ import { Calendar } from '../icons'
 import CountdownTimer from './countdown-timer'
 
 const Countdown = () => {
+  const ceremonyDate = weddingEvents[0].date
+
   return (
     <BackgroundPattern coloredPattern>
       <Heading

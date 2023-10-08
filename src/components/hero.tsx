@@ -7,8 +7,8 @@ import Snowfall from 'react-snowfall'
 
 import { bride, groom } from '@/data/bride'
 import { introImage, snowfall } from '@/data/site'
+import { weddingEvents } from '@/data/wedding-events'
 import cn from '@/lib/cn'
-import { ceremonyDate } from '@/lib/config'
 import { monthNames } from '@/lib/constants'
 
 import BatakTraditionalHouseImage from '../../public/assets/images/batak-traditional-house.svg'
@@ -18,6 +18,8 @@ const BatakTraditionalHouse = ({ ...rest }: ComponentProps<'svg'>) => {
 }
 
 const Hero = () => {
+  const ceremonyDate =
+    weddingEvents.find((event) => event.name === 'ceremony')?.date ?? ''
   const date = new Date(ceremonyDate)
   const day = date.getDate()
   const month = monthNames[date.getMonth()]

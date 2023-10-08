@@ -6,8 +6,8 @@ import Snowfall from 'react-snowfall'
 
 import { bride, groom } from '@/data/bride'
 import { frontCoverImage, snowfall } from '@/data/site'
+import { weddingEvents } from '@/data/wedding-events'
 import cn from '@/lib/cn'
-import { ceremonyDate } from '@/lib/config'
 
 import { Envelope } from './icons'
 
@@ -22,6 +22,7 @@ const FrontCover = ({
   onOpenInvitation,
   invitedGuest,
 }: FrontCoverProps) => {
+  const ceremonyDate = weddingEvents[0].date
   const date = new Date(ceremonyDate)
 
   const day = date.getDate()
