@@ -1,5 +1,5 @@
+import { bride, groom } from '@/data/bride'
 import cn from '@/lib/cn'
-import { bride, groom } from '@/lib/config'
 
 import BackgroundPattern from './background-pattern'
 import BrideProfile from './bride-profile'

@@ -4,14 +4,9 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Snowfall from 'react-snowfall'
 
+import { bride, groom } from '@/data/bride'
 import cn from '@/lib/cn'
-import {
-  bride,
-  ceremonyDate,
-  frontCoverImage,
-  groom,
-  snowfall,
-} from '@/lib/config'
+import { ceremonyDate, frontCoverImage, snowfall } from '@/lib/config'
 
 import { Envelope } from './icons'
 
