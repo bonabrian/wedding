@@ -3,10 +3,10 @@ import Link from 'next/link'
 import cn from '@/lib/cn'
 import { calendarUrl, ceremonyDate } from '@/lib/config'
 
-import BackgroundPattern from './background-pattern'
+import BackgroundPattern from '../background-pattern'
+import Heading from '../heading'
+import { Calendar } from '../icons'
 import CountdownTimer from './countdown-timer'
-import Heading from './heading'
-import { Calendar } from './icons'
 
 const Countdown = () => {
   return (
