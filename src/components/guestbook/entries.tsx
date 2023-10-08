@@ -5,10 +5,10 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import cn from '@/lib/cn'
 import type { Guestbook } from '@/types/guestbook'
 
-import GuestbookEntry from './guestbook-entry'
-import { ChevronUp } from './icons'
+import { ChevronUp } from '../icons'
+import Entry from './entry'
 
-interface GuestbookEntriesProps {
+interface EntriesProps {
   entries?: Guestbook[]
   resetPage?: boolean
 }
@@ -16,7 +16,7 @@ interface GuestbookEntriesProps {
 const ENTRY_GAP = 16
 const PER_PAGE = 5
 
-const GuestbookEntries = ({ entries, resetPage }: GuestbookEntriesProps) => {
+const Entries = ({ entries, resetPage }: EntriesProps) => {
   const entriesRef = useRef<HTMLDivElement | null>(null)
   const [entriesHeight, setEntriesHeight] = useState(0)
   const [page, setPage] = useState(0)
@@ -82,7 +82,7 @@ const GuestbookEntries = ({ entries, resetPage }: GuestbookEntriesProps) => {
             style={{ height: entriesHeight }}
           >
             {displayedEntries.map((entry) => (
-              <GuestbookEntry key={entry.id} entry={entry} />
+              <Entry key={entry.id} entry={entry} />
             ))}
           </div>
         ) : null}
@@ -166,4 +166,4 @@ const GuestbookEntries = ({ entries, resetPage }: GuestbookEntriesProps) => {
   )
 }
 
-export default GuestbookEntries
+export default Entries

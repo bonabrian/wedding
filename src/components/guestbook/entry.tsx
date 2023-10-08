@@ -6,7 +6,7 @@ import Image from 'next/image'
 import cn from '@/lib/cn'
 import type { Guestbook } from '@/types/guestbook'
 
-interface GuestbookEntryProps {
+interface EntryProps {
   entry: Guestbook
 }
 
@@ -14,7 +14,7 @@ const formatDatetime = (dateTime: Date) => {
   return moment(dateTime).fromNow()
 }
 
-const GuestbookEntry = ({ entry }: GuestbookEntryProps) => {
+const Entry = ({ entry }: EntryProps) => {
   return (
     <div className={cn('flex items-start gap-3 font-cormorant-upright')}>
       <Image
@@ -49,4 +49,4 @@ const GuestbookEntry = ({ entry }: GuestbookEntryProps) => {
   )
 }
 
-export default GuestbookEntry
+export default Entry

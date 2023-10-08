@@ -4,10 +4,10 @@ import useGuestbook from '@/hooks/use-guestbook'
 import cn from '@/lib/cn'
 import type { Guest } from '@/types/guest'
 
-import BackgroundPattern from './background-pattern'
-import GuestbookEntries from './guestbook-entries'
-import GuestbookForm from './guestbook-form'
-import Heading from './heading'
+import BackgroundPattern from '../background-pattern'
+import Heading from '../heading'
+import Entries from './entries'
+import EntryForm from './entry-form'
 
 interface GuestbookProps {
   guest?: Guest
@@ -42,8 +42,8 @@ const Guestbook = ({ guest }: GuestbookProps) => {
           'flex flex-col z-10 border border-accent/60 rounded-lg px-8 py-12 space-y-4',
         )}
       >
-        <GuestbookForm guest={guest?.name ?? 'N/A'} onSubmit={handleOnSubmit} />
-        <GuestbookEntries entries={entires} resetPage={resetPage} />
+        <EntryForm guest={guest?.name ?? 'N/A'} onSubmit={handleOnSubmit} />
+        <Entries entries={entires} resetPage={resetPage} />
       </div>
     </BackgroundPattern>
   )

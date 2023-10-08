@@ -5,14 +5,14 @@ import { useState } from 'react'
 
 import cn from '@/lib/cn'
 
-import { PaperPlane } from './icons'
+import { PaperPlane } from '../icons'
 
-interface GuestbookFormProps {
+interface EntryFormProps {
   guest: string
   onSubmit: (message: string) => Promise<void>
 }
 
-const GuestbookForm = ({ guest, onSubmit }: GuestbookFormProps) => {
+const EntryForm = ({ guest, onSubmit }: EntryFormProps) => {
   const [message, setMessage] = useState('')
   const [isSending, setIsSending] = useState(false)
   const [formError, setFormError] = useState(false)
@@ -90,4 +90,4 @@ const GuestbookForm = ({ guest, onSubmit }: GuestbookFormProps) => {
   )
 }
 
-export default GuestbookForm
+export default EntryForm
