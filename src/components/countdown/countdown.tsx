@@ -32,7 +32,8 @@ const Countdown = () => {
         >
           <button
             className={cn(
-              'inline-flex items-center gap-2 border-2 px-2 py-1 text-sm border-white rounded-md text-white',
+              'text-sm inline-flex items-center gap-2 border-2 px-2 py-1 border-white rounded-md text-white font-cormorant-upright',
+              'lg:text-base',
             )}
           >
             <Calendar className={cn('w-4 h-4')} />

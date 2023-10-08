@@ -19,11 +19,15 @@ interface TimeRemaining {
 
 const Timer = ({ time, label }: { time: number; label: string }) => {
   return (
-    <div className={cn('flex flex-col items-center gap-3 text-white')}>
-      <span className={cn('font-bold text-2xl', 'md:text-4xl', 'lg:text-6xl')}>
+    <div
+      className={cn(
+        'flex flex-col items-center gap-3 text-white font-cormorant-upright',
+      )}
+    >
+      <span className={cn('font-bold text-3xl', 'md:text-5xl', 'lg:text-7xl')}>
         {time.toString().padStart(2, '0')}
       </span>
-      <span className={cn('uppercase text-xs', 'md:text-sm', 'lg:text-2xl')}>
+      <span className={cn('uppercase text-sm', 'md:text-base', 'lg:text-3xl')}>
         {label}
       </span>
     </div>
