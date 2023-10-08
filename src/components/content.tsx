@@ -10,6 +10,7 @@ import { mainAudio } from '@/lib/config'
 import AudioPlayer from './audio-player'
 import Countdown from './countdown'
 import FrontCover from './front-cover'
+import Gallery from './gallery'
 import GroomAndBride from './groom-and-bride'
 import Guestbook from './guestbook'
 import Hero from './hero'
@@ -53,6 +54,7 @@ const Content = () => {
           <GroomAndBride />
           <Countdown />
           <Venue />
+          <Gallery />
           <RSVP guest={guest} />
           <Guestbook guest={guest} />
           {/* <WeddingGift /> */}
