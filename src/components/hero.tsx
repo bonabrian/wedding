@@ -6,8 +6,9 @@ import type { ComponentProps } from 'react'
 import Snowfall from 'react-snowfall'
 
 import { bride, groom } from '@/data/bride'
+import { introImage, snowfall } from '@/data/site'
 import cn from '@/lib/cn'
-import { ceremonyDate, introImage, snowfall } from '@/lib/config'
+import { ceremonyDate } from '@/lib/config'
 import { monthNames } from '@/lib/constants'
 
 import BatakTraditionalHouseImage from '../../public/assets/images/batak-traditional-house.svg'

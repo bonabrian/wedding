@@ -4,8 +4,8 @@ import { AnimatePresence } from 'framer-motion'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
+import { mainAudio } from '@/data/site'
 import useGuest from '@/hooks/use-guest'
-import { mainAudio } from '@/lib/config'
 
 import AudioPlayer from './audio-player'
 import Countdown from './countdown'

@@ -1,7 +1,8 @@
 import Link from 'next/link'
 
+import { calendarUrl } from '@/data/site'
 import cn from '@/lib/cn'
-import { calendarUrl, ceremonyDate } from '@/lib/config'
+import { ceremonyDate } from '@/lib/config'
 
 import BackgroundPattern from '../background-pattern'
 import Heading from '../heading'

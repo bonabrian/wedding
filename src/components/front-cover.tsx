@@ -5,8 +5,9 @@ import Image from 'next/image'
 import Snowfall from 'react-snowfall'
 
 import { bride, groom } from '@/data/bride'
+import { frontCoverImage, snowfall } from '@/data/site'
 import cn from '@/lib/cn'
-import { ceremonyDate, frontCoverImage, snowfall } from '@/lib/config'
+import { ceremonyDate } from '@/lib/config'
 
 import { Envelope } from './icons'
 
