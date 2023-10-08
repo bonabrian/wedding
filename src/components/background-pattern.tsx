@@ -26,7 +26,7 @@ const BackgroundPattern = ({
     <>
       <div
         className={cn(
-          'relative bg-white py-24',
+          'relative bg-white py-12',
           bottomWaves && 'md:pb-28 lg:pb-48',
           topWaves && 'md:pt-36 lg:pt-56',
           coloredPattern && 'bg-accent',
