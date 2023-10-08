@@ -2,8 +2,8 @@ import useRSVP from '@/hooks/use-rsvp'
 import cn from '@/lib/cn'
 import type { Guest } from '@/types/guest'
 
-import BackgroundPattern from './background-pattern'
-import Heading from './heading'
+import BackgroundPattern from '../background-pattern'
+import Heading from '../heading'
 import type { RSVPFormBody } from './rsvp-form'
 import RSVPForm from './rsvp-form'
 

@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 import cn from '@/lib/cn'
 
-import { PaperPlane } from './icons'
+import { PaperPlane } from '../icons'
 
 export interface RSVPFormBody {
   numberOfGuest: string
