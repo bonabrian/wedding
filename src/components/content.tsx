@@ -7,13 +7,13 @@ import { useEffect, useState } from 'react'
 import { mainAudio } from '@/data/site'
 import useGuest from '@/hooks/use-guest'
 
+import Album from './album'
 import AudioPlayer from './audio-player'
 import Countdown from './countdown'
 import FrontCover from './front-cover'
 import GroomAndBride from './groom-and-bride'
 import Guestbook from './guestbook'
 import Hero from './hero'
-import Moments from './moments'
 import RSVP from './rsvp'
 import ScrollToTop from './scroll-to-top'
 import Venue from './venue'
@@ -55,7 +55,7 @@ const Content = () => {
           <GroomAndBride />
           <Countdown />
           <Venue />
-          <Moments />
+          <Album />
           <RSVP guest={guest} />
           <Guestbook guest={guest} />
           {/* <WeddingGift /> */}

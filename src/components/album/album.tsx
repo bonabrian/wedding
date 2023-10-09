@@ -4,9 +4,9 @@ import BackgroundPattern from '../background-pattern'
 import Heading from '../heading'
 import Gallery from './gallery'
 
-const Moments = () => {
+const Album = () => {
   return (
-    <BackgroundPattern bottomWaves>
+    <BackgroundPattern bottomWaves className={cn('pt-0')}>
       <Heading
         title="Bahagia Kami"
         caption="Momen"
@@ -21,4 +21,4 @@ const Moments = () => {
   )
 }
 
-export default Moments
+export default Album
