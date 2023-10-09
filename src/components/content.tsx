@@ -10,6 +10,7 @@ import useGuest from '@/hooks/use-guest'
 import Album from './album'
 import AudioPlayer from './audio-player'
 import Countdown from './countdown'
+import DigitalEnvelope from './digital-envelope'
 import FrontCover from './front-cover'
 import GroomAndBride from './groom-and-bride'
 import Guestbook from './guestbook'
@@ -58,7 +59,7 @@ const Content = () => {
           <Album />
           <RSVP guest={guest} />
           <Guestbook guest={guest} />
-          {/* <WeddingGift /> */}
+          <DigitalEnvelope />
           <AudioPlayer
             src={mainAudio}
             isPlaying={isPlaying}

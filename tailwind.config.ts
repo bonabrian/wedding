@@ -12,6 +12,7 @@ const config: Config = {
           'var(--font-cormorant-upright)',
           ...fontFamily.sans,
         ],
+        averia: ['var(--font-averia)', ...fontFamily.sans],
       },
       colors: {
         red: '#BB4A4A',
