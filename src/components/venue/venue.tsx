@@ -1,9 +1,9 @@
 import { weddingEvents } from '@/data/wedding-events'
 import cn from '@/lib/cn'
 
-import BackgroundPattern from './background-pattern'
+import BackgroundPattern from '../background-pattern'
+import Heading from '../heading'
 import EventCard from './event-card'
-import Heading from './heading'
 
 const Venue = () => {
   const ceremony = weddingEvents[0]

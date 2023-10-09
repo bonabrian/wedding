@@ -18,7 +18,6 @@ import Hero from './hero'
 import RSVP from './rsvp'
 import ScrollToTop from './scroll-to-top'
 import Venue from './venue'
-// import WeddingGift from './wedding-gift'
 
 const Content = () => {
   const [isPlaying, setIsPlaying] = useState(false)

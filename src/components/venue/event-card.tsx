@@ -4,7 +4,7 @@ import type { WeddingEvent } from '@/data/wedding-events'
 import cn from '@/lib/cn'
 import { dayNames, monthNames } from '@/lib/constants'
 
-import { MapPin } from './icons'
+import { MapPin } from '../icons'
 
 interface EventCardProps {
   weddingEvent: WeddingEvent
