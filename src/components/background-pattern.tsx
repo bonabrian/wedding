@@ -10,6 +10,7 @@ interface BackgroundPatternProps {
   coloredPattern?: boolean
   bottomWaves?: boolean
   topWaves?: boolean
+  className?: string
 }
 
 const Waves = ({ ...rest }: ComponentProps<'svg'>) => {
@@ -21,15 +22,17 @@ const BackgroundPattern = ({
   coloredPattern = false,
   bottomWaves,
   topWaves,
+  className,
 }: BackgroundPatternProps) => {
   return (
     <>
       <div
         className={cn(
-          'relative bg-white py-12',
+          'relative bg-white py-24',
           bottomWaves && 'md:pb-28 lg:pb-48',
           topWaves && 'md:pt-36 lg:pt-56',
           coloredPattern && 'bg-accent',
+          className,
         )}
       >
         {topWaves && (
