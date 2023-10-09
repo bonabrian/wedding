@@ -39,7 +39,11 @@ const Guestbook = ({ guest }: GuestbookProps) => {
       />
       <div
         className={cn(
-          'flex flex-col z-10 border border-accent/60 rounded-lg px-8 py-12 space-y-4',
+          'flex flex-col z-10 border border-accent/60 rounded-lg px-8 py-8 space-y-4 mb-4',
+          'sm:mb-8',
+          'md:mb-12',
+          'lg:mb-16',
+          'xl:mb-20',
         )}
       >
         <EntryForm guest={guest?.name ?? 'N/A'} onSubmit={handleOnSubmit} />
