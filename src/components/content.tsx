@@ -11,6 +11,7 @@ import Album from './album'
 import AudioPlayer from './audio-player'
 import Countdown from './countdown'
 import DigitalEnvelope from './digital-envelope'
+import Footer from './footer'
 import FrontCover from './front-cover'
 import GroomAndBride from './groom-and-bride'
 import Guestbook from './guestbook'
@@ -59,6 +60,7 @@ const Content = () => {
           <RSVP guest={guest} />
           <Guestbook guest={guest} />
           <DigitalEnvelope />
+          <Footer />
           <AudioPlayer
             src={mainAudio}
             isPlaying={isPlaying}
