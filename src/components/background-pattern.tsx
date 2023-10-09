@@ -30,7 +30,7 @@ const BackgroundPattern = ({
         className={cn(
           'relative bg-white py-24',
           bottomWaves && 'md:pb-28 lg:pb-48',
-          topWaves && 'md:pt-36 lg:pt-56',
+          topWaves && 'md:pt-40 lg:pt-56',
           coloredPattern && 'bg-accent',
           className,
         )}
