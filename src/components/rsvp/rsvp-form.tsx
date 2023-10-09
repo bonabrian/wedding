@@ -164,7 +164,11 @@ const RSVPForm = ({ guest, onSubmit }: RSVPFormProps) => {
             'hover:bg-input',
             'disabled:cursor-not-allowed disabled:opacity-80 disabled:hover:bg-transparent',
           )}
-          disabled={isSending || !numberOfGuest || !attendance}
+          disabled={
+            isSending ||
+            !numberOfGuest ||
+            attendance === Attendance.NOTCONFIRMED
+          }
         >
           <PaperPlane />
           {isSending ? 'Mengirim...' : 'Kirim'}
