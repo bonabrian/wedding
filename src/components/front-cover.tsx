@@ -15,12 +15,14 @@ interface FrontCoverProps {
   guest?: string | null
   onOpenInvitation: () => void
   invitedGuest: boolean
+  loading?: boolean
 }
 
 const FrontCover = ({
   guest,
   onOpenInvitation,
   invitedGuest,
+  loading,
 }: FrontCoverProps) => {
   const ceremonyDate = weddingEvents[0].date
   const date = new Date(ceremonyDate)
@@ -101,17 +103,33 @@ const FrontCover = ({
           exit={{ y: 50, opacity: 0 }}
           transition={{ delay: 0.5, type: 'spring', duration: 2 }}
         >
-          {invitedGuest && (
-            <div
-              className={cn(
-                'text-center mb-4 text-xl',
-                'md:text-2xl',
-                'lg:text-3xl lg:mb-6',
-              )}
-            >
-              <p className={cn('text-white')}>Kepada Yth:</p>
-              <p className={cn('text-red')}>{guest}</p>
+          {loading ? (
+            <div className={cn('flex gap-2 mb-4')}>
+              <div
+                className={cn('w-3 h-3 rounded-full animate-pulse bg-input')}
+              />
+              <div
+                className={cn('w-3 h-3 rounded-full animate-pulse bg-input')}
+              />
+              <div
+                className={cn('w-3 h-3 rounded-full animate-pulse bg-input')}
+              />
             </div>
+          ) : (
+            <>
+              {invitedGuest && (
+                <div
+                  className={cn(
+                    'text-center mb-4 text-xl',
+                    'md:text-2xl',
+                    'lg:text-3xl lg:mb-6',
+                  )}
+                >
+                  <p className={cn('text-white')}>Kepada Yth:</p>
+                  <p className={cn('text-red')}>{guest}</p>
+                </div>
+              )}
+            </>
           )}
           <button
             className={cn(
@@ -121,7 +139,7 @@ const FrontCover = ({
               'disabled:opacity-80 disabled:cursor-not-allowed',
             )}
             onClick={onOpenInvitation}
-            disabled={!invitedGuest}
+            disabled={!invitedGuest || loading}
           >
             <Envelope />
             <span>

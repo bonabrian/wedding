@@ -27,7 +27,7 @@ const Content = () => {
   const searchParams = useSearchParams()
   const slug = searchParams.get('to')
 
-  const { guest } = useGuest(slug ?? '')
+  const { guest, loading } = useGuest(slug ?? '')
 
   const onOpenInvitation = () => {
     setShowCover(false)
@@ -47,6 +47,7 @@ const Content = () => {
           guest={guest?.name}
           onOpenInvitation={onOpenInvitation}
           invitedGuest={invitedGuest}
+          loading={loading}
         />
       ) : (
         <>
