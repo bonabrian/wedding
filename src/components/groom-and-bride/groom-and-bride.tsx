@@ -1,9 +1,9 @@
 import { bride, groom } from '@/data/bride'
 import cn from '@/lib/cn'
 
-import BackgroundPattern from './background-pattern'
+import BackgroundPattern from '../background-pattern'
+import Heading from '../heading'
 import BrideProfile from './bride-profile'
-import Heading from './heading'
 
 const GroomAndBride = () => {
   return (
