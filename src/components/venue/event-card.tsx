@@ -1,13 +1,16 @@
+import 'moment/locale/id'
+
+import moment from 'moment'
 import Link from 'next/link'
 
 import type { WeddingEvent } from '@/data/wedding-events'
 import cn from '@/lib/cn'
-import { dayNames, monthNames } from '@/lib/constants'
 
 import { MapPin } from '../icons'
 
 interface EventCardProps {
   weddingEvent: WeddingEvent
+  duration: number
 }
 
 const eventTitles: Record<string, string> = {
@@ -15,10 +18,10 @@ const eventTitles: Record<string, string> = {
   reception: 'Resepsi',
 }
 
-const EventCard = ({ weddingEvent }: EventCardProps) => {
+const EventCard = ({ weddingEvent, duration }: EventCardProps) => {
   const { date, name, place } = weddingEvent
   const { location, address, map } = place
-  const eventDateTime = new Date(date)
+  const eventDateTime = moment(date)
 
   return (
     <div
@@ -32,19 +35,20 @@ const EventCard = ({ weddingEvent }: EventCardProps) => {
           'flex flex-col justify-center items-center text-xl gap-1',
         )}
       >
-        <h3 className={cn('leading-none')}>
-          {dayNames[eventDateTime.getDay()]}
-        </h3>
-        <div className={cn('flex items-end flex-wrap gap-4')}>
-          <div>{monthNames[eventDateTime.getMonth()]}</div>
-          <div className={cn('font-bold text-4xl')}>
-            {eventDateTime.getDate()}
-          </div>
-          <div>{eventDateTime.getFullYear()}</div>
+        <h3 className={cn('leading-none')}>{eventDateTime.format('dddd')}</h3>
+        <div
+          className={cn(
+            'flex items-end flex-wrap gap-2 text-2xl font-semibold',
+          )}
+        >
+          <div>{eventDateTime.date()}</div>
+          <div>{eventDateTime.format('MMMM')}</div>
+          <div>{eventDateTime.year()}</div>
         </div>
         <h3>
-          {`0${eventDateTime.getHours()}`.slice(-2)}:
-          {`0${eventDateTime.getMinutes()}`.slice(-2)}
+          {eventDateTime.format('HH')}:{eventDateTime.format('mm')} -{' '}
+          {eventDateTime.add(duration, 'hour').format('HH')}:
+          {eventDateTime.add(duration, 'hour').format('mm')}
           <span className={cn('ml-1')}>WIB</span>
         </h3>
       </div>

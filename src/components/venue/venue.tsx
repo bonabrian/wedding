@@ -18,8 +18,8 @@ const Venue = () => {
       />
       <div className={cn('relative z-10 mb-4', 'md:mb-16', 'lg:mb-24')}>
         <div className={cn('grid gap-8', 'md:grid-cols-2')}>
-          <EventCard weddingEvent={ceremony} />
-          <EventCard weddingEvent={reception} />
+          <EventCard weddingEvent={ceremony} duration={2} />
+          <EventCard weddingEvent={reception} duration={7} />
         </div>
       </div>
     </BackgroundPattern>
