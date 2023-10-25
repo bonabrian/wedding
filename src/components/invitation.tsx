@@ -20,7 +20,7 @@ import RSVP from './rsvp'
 import ScrollToTop from './scroll-to-top'
 import Venue from './venue'
 
-const Content = () => {
+const Invitation = () => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [showCover, setShowCover] = useState(true)
   const [invitedGuest, setInvitedGuest] = useState(true)
@@ -73,4 +73,4 @@ const Content = () => {
   )
 }
 
-export default Content
+export default Invitation
