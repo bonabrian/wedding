@@ -22,3 +22,32 @@ export const snowfall: SnowfallProps = {
     zIndex: 1,
   },
 }
+
+export const BASE_URL =
+  process.env.NODE_ENV === 'production'
+    ? 'https://bonasilvia.vercel.app'
+    : 'http://localhost:3000'
+
+const appHost = (includeProtocol = true): string => {
+  let host: string = ''
+
+  if (process.env.NEXT_PUBLIC_APP_URL) {
+    host = process.env.NEXT_PUBLIC_APP_URL
+  } else if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+    host = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+  } else if (process.env.VERCEL_URL) {
+    host = `https://${process.env.VERCEL_URL}`
+  }
+
+  return includeProtocol
+    ? host
+    : host.replace('https://', '').replace('http://', '')
+}
+
+/**
+ * Build a URL for the given path.
+ * @return the URL for the given path.
+ */
+export const fullURL = (path: string = '', host: string = appHost()): URL => {
+  return new URL(path, host)
+}
