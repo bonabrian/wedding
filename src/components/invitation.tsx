@@ -56,8 +56,8 @@ const Invitation = () => {
           <GroomAndBride />
           <Countdown />
           <Venue />
-          <Album />
           <RSVP guest={guest} />
+          <Album />
           <Guestbook guest={guest} />
           <DigitalEnvelope />
           <Footer />

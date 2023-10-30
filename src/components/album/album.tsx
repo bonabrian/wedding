@@ -6,7 +6,7 @@ import Gallery from './gallery'
 
 const Album = () => {
   return (
-    <BackgroundPattern bottomWaves className={cn('pt-0')}>
+    <BackgroundPattern topWaves className={cn('pt-0')}>
       <Heading
         title="Bahagia Kami"
         caption="Momen"

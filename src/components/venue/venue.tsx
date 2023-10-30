@@ -10,7 +10,7 @@ const Venue = () => {
   const reception = weddingEvents[1]
 
   return (
-    <BackgroundPattern topWaves>
+    <BackgroundPattern topWaves bottomWaves>
       <Heading
         title="Pernikahan"
         caption="Waktu & Tempat"
