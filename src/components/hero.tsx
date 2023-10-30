@@ -78,7 +78,7 @@ const Hero = () => {
         >
           <h1
             className={cn(
-              'text-red font-semibold text-6xl',
+              'text-red font-semibold text-6xl tracking-tighter',
               'md:text-7xl',
               'lg:text-9xl',
             )}

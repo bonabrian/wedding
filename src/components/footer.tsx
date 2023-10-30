@@ -47,7 +47,7 @@ const Footer = () => {
         >
           <h1
             className={cn(
-              'font-semibold text-6xl',
+              'font-semibold text-6xl tracking-tighter',
               'md:text-7xl',
               'lg:text-9xl',
             )}
