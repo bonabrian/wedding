@@ -27,7 +27,7 @@ const RSVP = ({ guest }: RSVPProps) => {
     <BackgroundPattern coloredPattern>
       <Heading title="RSVP" inverseColor />
       <div className={cn('flex flex-col z-10')}>
-        <RSVPForm guest={guest?.name ?? 'N/A'} onSubmit={handleOnSubmit} />
+        <RSVPForm onSubmit={handleOnSubmit} />
       </div>
     </BackgroundPattern>
   )

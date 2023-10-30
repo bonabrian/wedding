@@ -15,7 +15,6 @@ export interface RSVPFormBody {
 }
 
 interface RSVPFormProps {
-  guest: string
   onSubmit: (body: RSVPFormBody) => Promise<void>
 }
 
@@ -26,7 +25,7 @@ const attendanceLabel = {
   [Attendance.NOTCONFIRMED]: 'Belum dikonfirmasi',
 }
 
-const RSVPForm = ({ guest, onSubmit }: RSVPFormProps) => {
+const RSVPForm = ({ onSubmit }: RSVPFormProps) => {
   const [numberOfGuest, setNumberOfGuest] = useState('')
   const [attendance, setAttendance] = useState<keyof typeof Attendance>(
     Attendance.NOTCONFIRMED,
@@ -63,22 +62,6 @@ const RSVPForm = ({ guest, onSubmit }: RSVPFormProps) => {
         'space-y-4 border border-white rounded-lg px-8 py-12 font-cormorant-upright text-lg',
       )}
     >
-      <div className={cn('flex flex-col gap-2')}>
-        <label htmlFor="name" className={cn('text-white font-bold')}>
-          Nama
-        </label>
-        <input
-          className={cn(
-            'rounded-lg bg-input border-transparent border-0 text-white px-4 py-2 text-lg',
-            'focus:outline-none focus:ring-2 focus:ring-white',
-          )}
-          type="text"
-          aria-label="Name"
-          name="name"
-          value={guest}
-          readOnly
-        />
-      </div>
       <div className={cn('flex flex-col gap-2')}>
         <div className={cn('flex')}>
           <label htmlFor="numberOfGuest" className={cn('text-white font-bold')}>
