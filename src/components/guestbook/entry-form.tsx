@@ -8,11 +8,10 @@ import cn from '@/lib/cn'
 import { PaperPlane } from '../icons'
 
 interface EntryFormProps {
-  guest: string
   onSubmit: (message: string) => Promise<void>
 }
 
-const EntryForm = ({ guest, onSubmit }: EntryFormProps) => {
+const EntryForm = ({ onSubmit }: EntryFormProps) => {
   const [message, setMessage] = useState('')
   const [isSending, setIsSending] = useState(false)
   const [formError, setFormError] = useState(false)
@@ -43,25 +42,6 @@ const EntryForm = ({ guest, onSubmit }: EntryFormProps) => {
       className={cn('space-y-4 font-cormorant-upright text-lg')}
     >
       <div className={cn('flex flex-col gap-2')}>
-        <label htmlFor="name" className={cn('text-foreground font-bold')}>
-          Nama
-        </label>
-        <input
-          className={cn(
-            'rounded-lg border-transparent border-0 text-foreground px-4 py-2 text-lg',
-            'focus:outline-none focus:ring-2 focus:ring-input',
-          )}
-          type="text"
-          aria-label="Name"
-          name="name"
-          value={guest}
-          readOnly
-        />
-      </div>
-      <div className={cn('flex flex-col gap-2')}>
-        <label htmlFor="message" className={cn('text-foreground font-bold')}>
-          Ucapan
-        </label>
         <textarea
           className={cn(
             'rounded-lg border-transparent border-0 text-foreground px-4 py-2 text-lg',

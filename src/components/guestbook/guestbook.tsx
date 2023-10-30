@@ -46,7 +46,7 @@ const Guestbook = ({ guest }: GuestbookProps) => {
           'xl:mb-20',
         )}
       >
-        <EntryForm guest={guest?.name ?? 'N/A'} onSubmit={handleOnSubmit} />
+        <EntryForm onSubmit={handleOnSubmit} />
         <Entries entries={entires} resetPage={resetPage} />
       </div>
     </BackgroundPattern>
