@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import type { ComponentProps } from 'react'
 
 import cn from '@/lib/cn'
@@ -9,6 +10,7 @@ interface HeadingProps {
   caption?: string
   description?: string
   inverseColor?: boolean
+  hashtag?: string[]
 }
 
 const GorgaBatak = ({ ...rest }: ComponentProps<'svg'>) => {
@@ -20,13 +22,13 @@ const Heading = ({
   caption,
   description,
   inverseColor,
+  hashtag,
 }: HeadingProps) => {
   return (
     <div
       className={cn(
-        'relative flex flex-col justify-center text-center mb-20 z-10',
-        'md:mb-24',
-        'lg:mb-32',
+        'relative flex flex-col justify-center text-center z-10',
+        hashtag ? '' : 'mb-16',
       )}
     >
       {caption && (
@@ -70,6 +72,22 @@ const Heading = ({
               'lg:w-1/3',
             )}
           />
+        </div>
+      )}
+      {hashtag && (
+        <div className={cn('flex my-8 min-w-[24rem] mx-auto')}>
+          <div className={cn('flex justify-between flex-1')}>
+            {hashtag.map((h) => (
+              <Link
+                key={h}
+                className="font-semibold"
+                href={`https://www.instagram.com/explore/tags/${h}/`}
+                target="_blank"
+              >
+                #{h}
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </div>
