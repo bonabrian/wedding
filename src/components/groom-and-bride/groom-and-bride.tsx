@@ -11,7 +11,7 @@ const GroomAndBride = () => {
       <Heading
         title="Pengantin"
         caption="Pasangan"
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, incidunt vitae blanditiis vero nam itaque dignissimos sed voluptate ducimus! Voluptatibus omnis praesentium doloremque alias sequi eum ex, eveniet quidem assumenda!"
+        description="Tuhan Allah berfirman: “Tidak baik, kalau manusia itu seorang diri saja. Aku akan menjadikan penolong baginya, yang sepadan dengan dia.”"
       />
       <div className={cn('relative z-10 mb-4', 'md:mb-16', 'lg:mb-24')}>
         <div

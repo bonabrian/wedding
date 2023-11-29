@@ -18,7 +18,7 @@ const DigitalEnvelope = () => {
     <BackgroundPattern coloredPattern>
       <Heading
         title="Amplop Digital"
-        description="Kehadiran Anda di pernikahan kami adalah hadiah terbesar yang telah kami terima. Namun bagi Anda yang ingin memberikan tanda kasih untuk kami, dapat melalui"
+        description="Kehadiran Bapak/Ibu/Saudara/i di pernikahan kami adalah hadiah terbesar yang telah kami terima. Namun bagi Anda yang ingin memberikan tanda kasih untuk kami, dapat melalui"
         inverseColor
       />
       <div className={cn('flex flex-col z-10 mb-20')}>

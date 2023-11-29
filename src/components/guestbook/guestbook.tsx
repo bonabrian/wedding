@@ -35,7 +35,7 @@ const Guestbook = ({ guest }: GuestbookProps) => {
     <BackgroundPattern bottomWaves>
       <Heading
         title="Doa dan Ucapan"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis magni cumque, quisquam praesentium ullam, expedita qui numquam deserunt ratione, blanditiis voluptatibus! Voluptates optio ullam aperiam ducimus nihil voluptatem at architecto."
+        description="Merupakan suatu kehormatan dan kebahagiaan bagi kami, apabila Bapak/Ibu/Saudara/i berkenan hadir, untuk memberikan do'a restu kepada kami."
       />
       <div
         className={cn(

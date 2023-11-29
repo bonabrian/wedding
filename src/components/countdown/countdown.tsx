@@ -40,6 +40,29 @@ const Countdown = () => {
             Tambahkan ke Kalender
           </button>
         </Link>
+
+        <div
+          className={cn(
+            'flex flex-col gap-4 justify-center items-center mt-16 text-white font-cormorant-upright',
+          )}
+        >
+          <p
+            className={cn('text-center text-base', 'md:text-lg', 'lg:text-xl')}
+          >
+            “Hendaklah kamu sehati sepikir, dalam satu kasih, satu jiwa, satu
+            tujuan. Demikianlah mereka bukan lagi dua melainkan satu. Karena itu
+            apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia.”
+          </p>
+          <p
+            className={cn(
+              'text-center text-lg font-semibold',
+              'md:text-xl',
+              'lg:text-2xl',
+            )}
+          >
+            - Filipi 2:2b; Matius 19:6 -
+          </p>
+        </div>
       </div>
     </BackgroundPattern>
   )
