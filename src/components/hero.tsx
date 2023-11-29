@@ -37,7 +37,7 @@ const Hero = () => {
               (max-width: 1200px) 50vw,
               33vw"
         className={cn(
-          'absolute object-cover object-center filter brightness-[0.3] -z-10',
+          'absolute object-cover object-center filter brightness-[0.4] -z-10',
         )}
       />
       <Snowfall
