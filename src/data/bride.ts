@@ -20,7 +20,7 @@ export const groom: Bride = {
   birthOrder: 'Putra',
   fatherName: 'Bpk. Salomo Siagian',
   motherName: 'Ibu Monika Purba',
-  image: 'https://placehold.co/400x600/black/white',
+  image: '/assets/images/groom.jpg',
   bankAccount: {
     name: 'Bona Brian Siagian',
     number: '12345678',
@@ -34,7 +34,7 @@ export const bride: Bride = {
   birthOrder: 'Putri',
   fatherName: 'Bpk. Sarbini Sitorus',
   motherName: 'Ibu Elsa Agustina Sirait ✞',
-  image: 'https://placehold.co/400x600/9f80ff/white',
+  image: '/assets/images/bride.jpg',
   bankAccount: {
     name: 'Silvia Novianty',
     number: '87654321',
