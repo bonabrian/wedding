@@ -14,7 +14,7 @@ const Venue = () => {
       <Heading
         title="Pernikahan"
         caption="Waktu & Tempat"
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi voluptas, expedita delectus ducimus impedit, ab porro optio sequi non, dolor incidunt pariatur neque eum saepe sint magni a ut assumenda."
+        description="Kita menemukan keberhasilan saat kita bekerja sama, merajut mimpi-mimpi bersama dalam perjalanan cinta yang tak terlupakan."
       />
       <div className={cn('relative z-10 mb-4', 'md:mb-16', 'lg:mb-24')}>
         <div className={cn('grid gap-8', 'md:grid-cols-2')}>
