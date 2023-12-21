@@ -37,7 +37,7 @@ const Hero = () => {
               (max-width: 1200px) 50vw,
               33vw"
         className={cn(
-          'absolute object-cover object-center filter brightness-[0.4] -z-10',
+          'absolute object-cover object-center filter brightness-[0.3] -z-10',
         )}
       />
       <Snowfall
@@ -50,65 +50,70 @@ const Hero = () => {
       />
       <div
         className={cn(
-          'flex flex-col justify-center items-center w-full font-cormorant-upright h-screen',
+          'flex flex-col justify-end items-center w-full font-cormorant-upright h-screen',
         )}
       >
-        <motion.div
-          className={cn('mb-5 flex flex-col justify-center items-center')}
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -50, opacity: 0 }}
-          transition={{ delay: 0.5, type: 'spring', duration: 2 }}
-        >
-          <div className={cn('relative z-10 w-32 h-48', 'lg:w-36 lg:h-52')}>
-            <BatakTraditionalHouse
-              className={cn('w-full mx-auto fill-secondary')}
-            />
-          </div>
-          <h3 className={cn('uppercase text-2xl text-white font-semibold')}>
-            Pernikahan
-          </h3>
-        </motion.div>
-        <motion.div
-          className={cn('text-center mb-5')}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ delay: 0.5, type: 'spring', duration: 2 }}
-        >
-          <h1
+        <div className={cn('py-8')}>
+          <motion.div
             className={cn(
-              'text-red font-semibold text-6xl tracking-tighter',
-              'md:text-7xl',
-              'lg:text-9xl',
+              'mb-4 flex flex-col justify-center items-center gap-2',
             )}
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -50, opacity: 0 }}
+            transition={{ delay: 0.5, type: 'spring', duration: 2 }}
           >
-            {groom.nickName} & {bride.nickName}
-          </h1>
-        </motion.div>
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 50, opacity: 0 }}
-          transition={{ delay: 0.5, type: 'spring', duration: 2 }}
-        >
-          <p className={cn('text-center text-white mb-4', 'md:text-lg')}>
-            Tanpa Mengurangi Rasa Hormat,
-            <br />
-            Kami Mengundang Bapak/Ibu/Saudara/i
-            <br />
-            Untuk Hadir Di Acara Pernikahan Kami.
-          </p>
-          <h3
-            className={cn(
-              'text-white text-center text-2xl',
-              'md:text-3xl',
-              'lg:text-3xl',
-            )}
+            <div className={cn('relative z-10 w-28 h-36', 'lg:w-32 lg:h-40')}>
+              <BatakTraditionalHouse
+                className={cn('w-full mx-auto fill-secondary')}
+              />
+            </div>
+            <h3 className={cn('uppercase text-xl text-white font-semibold')}>
+              Pernikahan
+            </h3>
+          </motion.div>
+          <motion.div
+            className={cn('text-center mb-4')}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.5, type: 'spring', duration: 2 }}
           >
-            {`${day} ${month} ${year}`}
-          </h3>
-        </motion.div>
+            <h1
+              className={cn(
+                'text-red font-semibold text-6xl tracking-tighter',
+                'md:text-7xl',
+                'lg:text-8xl',
+              )}
+            >
+              {groom.nickName} & {bride.nickName}
+            </h1>
+          </motion.div>
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 50, opacity: 0 }}
+            transition={{ delay: 0.5, type: 'spring', duration: 2 }}
+          >
+            <p
+              className={cn(
+                'text-center text-white text-lg mb-4',
+                'md:text-xl',
+              )}
+            >
+              Tanpa Mengurangi Rasa Hormat,
+              <br />
+              Kami Mengundang Bapak/Ibu/Saudara/i
+              <br />
+              Untuk Hadir Di Acara Pernikahan Kami.
+            </p>
+            <h3
+              className={cn('text-white text-center text-2xl', 'md:text-3xl')}
+            >
+              {`${day} ${month} ${year}`}
+            </h3>
+          </motion.div>
+        </div>
       </div>
     </section>
   )

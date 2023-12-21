@@ -2,7 +2,7 @@ import type { SnowfallProps } from 'react-snowfall'
 
 // images
 export const frontCoverImage = '/assets/images/front-cover.jpg'
-export const introImage = '/assets/images/front-cover.png'
+export const introImage = '/assets/images/intro-cover.jpg'
 export const footerImage = '/assets/images/front-cover.png'
 
 // audio
