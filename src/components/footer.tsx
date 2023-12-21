@@ -22,7 +22,7 @@ const Footer = () => {
               (max-width: 1200px) 50vw,
               33vw"
         className={cn(
-          'absolute object-cover object-center filter brightness-[0.4] -z-10',
+          'absolute object-cover object-center filter brightness-[0.3] -z-10',
         )}
       />
       <Snowfall
@@ -34,47 +34,49 @@ const Footer = () => {
         snowflakeCount={snowfall.snowflakeCount}
       />
       <div
-        className={cn(
-          'flex flex-col justify-between items-center w-full h-screen pt-16 pb-4',
-        )}
+        className={cn('flex flex-col justify-end items-center w-full h-screen')}
       >
-        <motion.div
-          className={cn('text-center mb-5 font-cormorant-upright text-white')}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ delay: 0.5, type: 'spring', duration: 2 }}
-        >
-          <h1
+        <div className="py-0">
+          <motion.div
             className={cn(
-              'font-semibold text-6xl tracking-tighter',
-              'md:text-7xl',
-              'lg:text-9xl',
+              'text-center mb-16 font-cormorant-upright text-white',
             )}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.5, type: 'spring', duration: 2 }}
           >
-            {groom.nickName} & {bride.nickName}
-          </h1>
-          <h2 className={cn('text-3xl')}>
-            Sampai berjumpa di hari bahagia kami
-          </h2>
-        </motion.div>
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 50, opacity: 0 }}
-          transition={{ delay: 0.5, type: 'spring', duration: 2 }}
-        >
-          <p className={cn('text-center text-sm text-white mb-4')}>
-            © {new Date().getFullYear()} by{' '}
-            <Link
-              href="https://bonabrian.com"
-              target="_blank"
-              className={cn('text-input underline font-semibold')}
+            <h1
+              className={cn(
+                'text-red font-semibold text-6xl tracking-tighter',
+                'md:text-7xl',
+                'lg:text-8xl',
+              )}
             >
-              Bona Brian Siagian
-            </Link>
-          </p>
-        </motion.div>
+              {groom.nickName} & {bride.nickName}
+            </h1>
+            <h2 className={cn('text-xl', 'md:text-2xl', 'lg:text-3xl')}>
+              Sampai berjumpa di hari bahagia kami
+            </h2>
+          </motion.div>
+          <motion.div
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 50, opacity: 0 }}
+            transition={{ delay: 0.5, type: 'spring', duration: 2 }}
+          >
+            <p className={cn('text-center text-sm text-white mb-4')}>
+              © {new Date().getFullYear()} by{' '}
+              <Link
+                href="https://bonabrian.com"
+                target="_blank"
+                className={cn('text-input underline font-semibold')}
+              >
+                Bona Brian Siagian
+              </Link>
+            </p>
+          </motion.div>
+        </div>
       </div>
     </section>
   )
