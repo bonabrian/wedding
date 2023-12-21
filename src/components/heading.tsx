@@ -75,7 +75,7 @@ const Heading = ({
         </div>
       )}
       {hashtag && (
-        <div className={cn('flex my-8 min-w-[24rem] mx-auto')}>
+        <div className={cn('flex my-8 min-w-full md:min-w-[24rem] mx-auto')}>
           <div className={cn('flex justify-between flex-1')}>
             {hashtag.map((h) => (
               <Link
