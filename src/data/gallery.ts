@@ -45,19 +45,37 @@ export const images: GalleryImage[] = [
   {
     src: '/assets/images/image7.jpg',
     alt: 'Image 7',
-    width: 5,
-    height: 4,
+    width: 1,
+    height: 1,
   },
   {
     src: '/assets/images/image8.jpg',
     alt: 'Image 8',
-    width: 3,
+    width: 4,
     height: 2,
   },
   {
     src: '/assets/images/image9.jpg',
     alt: 'Image 9',
-    width: 2,
-    height: 3,
+    width: 1,
+    height: 1,
+  },
+  {
+    src: '/assets/images/image10.jpg',
+    alt: 'Image 10',
+    width: 3,
+    height: 2,
+  },
+  {
+    src: '/assets/images/image11.jpg',
+    alt: 'Image 11',
+    width: 4,
+    height: 5,
+  },
+  {
+    src: '/assets/images/image12.jpg',
+    alt: 'Image 12',
+    width: 3,
+    height: 2,
   },
 ]

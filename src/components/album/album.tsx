@@ -10,7 +10,7 @@ const Album = () => {
       <Heading
         title="Bahagia Kami"
         caption="Momen"
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem quod non officia hic. Voluptatum aliquam quaerat facere, eaque ipsa dolore ratione minus excepturi praesentium! Laborum rerum molestiae consequuntur quod ea!"
+        description="Mencintai adalah seni merangkul perbedaan, memeluk keunikan satu sama lain dengan tulus dan tanpa syarat."
         hashtag={['BONApunberhaSIL', 'inVInityBONd']}
       />
       <div className={cn('flex flex-col z-10 mb-20')}>
