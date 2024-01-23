@@ -5,33 +5,43 @@ import type { Metadata } from 'next'
 import {
   Averia_Sans_Libre as AveriaSansLibre,
   Cormorant_Upright as CormorantUpright,
-  Inter,
+  Plus_Jakarta_Sans as PlusJakartaSans,
   Rochester,
 } from 'next/font/google'
+import localFont from 'next/font/local'
 
 import { BASE_URL, fullURL } from '@/data/site'
-import cn from '@/lib/cn'
+import { cn } from '@/lib/utils'
 
 import ClientLayout from './client.layout'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const fontPlusJakartaSans = PlusJakartaSans({
+  subsets: ['latin'],
+  variable: '--font-plus-jakarta',
+  weight: ['400', '500'],
+})
 
-const cormorantUpright = CormorantUpright({
+const fontCormorantUpright = CormorantUpright({
   subsets: ['latin'],
   variable: '--font-cormorant-upright',
   weight: ['500', '600', '700'],
 })
 
-const rochester = Rochester({
+const fontRochester = Rochester({
   subsets: ['latin'],
   variable: '--font-rochester',
   weight: ['400'],
 })
 
-const averia = AveriaSansLibre({
+const fontAveria = AveriaSansLibre({
   subsets: ['latin'],
   variable: '--font-averia',
   weight: ['400', '700'],
+})
+
+const fontCal = localFont({
+  src: '../assets/fonts/CalSans-SemiBold.woff2',
+  variable: '--font-cal',
 })
 
 const buildOgImageURL = () => {
@@ -61,10 +71,11 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
       className={cn(
-        inter.variable,
-        cormorantUpright.variable,
-        rochester.variable,
-        averia.variable,
+        fontPlusJakartaSans.variable,
+        fontCormorantUpright.variable,
+        fontRochester.variable,
+        fontAveria.variable,
+        fontCal.variable,
       )}
     >
       <body>

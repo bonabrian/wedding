@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server'
 
+import { findGuestBySlug } from '@/lib/actions'
 import { getErrorMessage, response } from '@/lib/api'
-import { findGuestBySlug } from '@/lib/db'
 
 export const GET = async (
   _req: NextRequest,
@@ -12,7 +12,7 @@ export const GET = async (
     const guest = await findGuestBySlug(slug)
 
     if (!guest) {
-      return response({ message: 'Not Found' }, 404)
+      return response({}, 404)
     }
 
     return response(guest)
