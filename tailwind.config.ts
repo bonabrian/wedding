@@ -6,13 +6,11 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)', ...fontFamily.sans],
-        rochester: ['var(--font-rochester)', ...fontFamily.sans],
-        'cormorant-upright': [
-          'var(--font-cormorant-upright)',
-          ...fontFamily.sans,
-        ],
-        averia: ['var(--font-averia)', ...fontFamily.sans],
+        sans: ['var(--font-plus-jakarta)', ...fontFamily.sans],
+        rochester: ['var(--font-rochester)'],
+        'cormorant-upright': ['var(--font-cormorant-upright)'],
+        averia: ['var(--font-averia)'],
+        cal: ['var(--font-cal)'],
       },
       colors: {
         red: '#BB4A4A',
