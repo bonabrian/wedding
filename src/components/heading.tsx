@@ -1,9 +1,10 @@
+import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
-import type { ComponentProps } from 'react'
+import { type ComponentProps, useRef } from 'react'
 
-import cn from '@/lib/cn'
+import { cn } from '@/lib/utils'
 
-import GorgaBatakImage from '../../public/assets/images/gorga-batak.svg'
+import GorgaBatakImage from '../../public/images/gorga-batak.svg'
 
 interface HeadingProps {
   title: string
@@ -17,6 +18,21 @@ const GorgaBatak = ({ ...rest }: ComponentProps<'svg'>) => {
   return <GorgaBatakImage {...rest} />
 }
 
+const variants = {
+  initial: {
+    y: 50,
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+  },
+  exit: {
+    y: 50,
+    opacity: 0,
+  },
+}
+
 const Heading = ({
   title,
   caption,
@@ -24,8 +40,18 @@ const Heading = ({
   inverseColor,
   hashtag,
 }: HeadingProps) => {
+  const headingRef = useRef<HTMLDivElement>(null)
+  const isInView = useInView(headingRef, { once: true, margin: '-100px' })
+
   return (
-    <div
+    <motion.div
+      key={`heading-${title}`}
+      initial="initial"
+      animate={isInView ? 'animate' : 'initial'}
+      exit="exit"
+      variants={variants}
+      ref={headingRef}
+      transition={{ duration: 0.3 }}
       className={cn(
         'relative flex flex-col justify-center text-center z-10',
         hashtag ? '' : 'mb-16',
@@ -34,7 +60,7 @@ const Heading = ({
       {caption && (
         <h3
           className={cn(
-            'font-cormorant-upright text-foreground text-3xl mb-8',
+            'font-cormorant-upright text-foreground text-3xl mb-4',
             'md:text-4xl',
             inverseColor ? 'text-white' : 'text-foreground',
           )}
@@ -90,7 +116,7 @@ const Heading = ({
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   )
 }
 

@@ -3,7 +3,6 @@ import 'react-photo-view/dist/react-photo-view.css'
 
 import type { Metadata } from 'next'
 import {
-  Averia_Sans_Libre as AveriaSansLibre,
   Cormorant_Upright as CormorantUpright,
   Plus_Jakarta_Sans as PlusJakartaSans,
   Rochester,
@@ -33,14 +32,8 @@ const fontRochester = Rochester({
   weight: ['400'],
 })
 
-const fontAveria = AveriaSansLibre({
-  subsets: ['latin'],
-  variable: '--font-averia',
-  weight: ['400', '700'],
-})
-
 const fontCal = localFont({
-  src: '../assets/fonts/CalSans-SemiBold.woff2',
+  src: '../../assets/fonts/CalSans-SemiBold.woff2',
   variable: '--font-cal',
 })
 
@@ -74,7 +67,6 @@ export default function RootLayout({
         fontPlusJakartaSans.variable,
         fontCormorantUpright.variable,
         fontRochester.variable,
-        fontAveria.variable,
         fontCal.variable,
       )}
     >

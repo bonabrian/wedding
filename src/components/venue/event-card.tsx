@@ -1,16 +1,18 @@
 import 'moment/locale/id'
 
+import { motion, useInView } from 'framer-motion'
 import moment from 'moment'
 import Link from 'next/link'
+import { useRef } from 'react'
 
 import type { WeddingEvent } from '@/data/wedding-events'
-import cn from '@/lib/cn'
+import { cn } from '@/lib/utils'
 
 import { MapPin } from '../icons'
 
 interface EventCardProps {
   weddingEvent: WeddingEvent
-  duration: number
+  durationInHour: number
 }
 
 const eventTitles: Record<string, string> = {
@@ -18,13 +20,33 @@ const eventTitles: Record<string, string> = {
   reception: 'Resepsi',
 }
 
-const EventCard = ({ weddingEvent, duration }: EventCardProps) => {
+const EventCard = ({ weddingEvent, durationInHour }: EventCardProps) => {
   const { date, name, place } = weddingEvent
   const { location, address, map } = place
   const eventDateTime = moment(date)
 
+  const eventCardRef = useRef<HTMLDivElement>(null)
+  const isInView = useInView(eventCardRef, { once: false, margin: '-120px' })
+  const reverse = name === 'reception'
+
+  const variants = {
+    initial: { x: reverse ? 50 : -50, opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: reverse ? 50 : -50, opacity: 0 },
+  }
+
   return (
-    <div
+    <motion.div
+      initial="initial"
+      animate={isInView ? 'animate' : 'initial'}
+      exit="exit"
+      variants={variants}
+      transition={{
+        duration: 1.2,
+        type: 'spring',
+        delay: 0.3,
+      }}
+      ref={eventCardRef}
       className={cn(
         'border border-accent/60 flex flex-col justify-center items-center font-cormorant-upright px-8 py-12 rounded-lg gap-8 text-foreground',
       )}
@@ -47,8 +69,8 @@ const EventCard = ({ weddingEvent, duration }: EventCardProps) => {
         </div>
         <h3>
           {eventDateTime.format('HH')}:{eventDateTime.format('mm')} -{' '}
-          {eventDateTime.add(duration, 'hour').format('HH')}:
-          {eventDateTime.add(duration, 'hour').format('mm')}
+          {eventDateTime.add(durationInHour, 'hour').format('HH')}:
+          {eventDateTime.add(durationInHour, 'hour').format('mm')}
           <span className={cn('ml-1')}>WIB</span>
         </h3>
       </div>
@@ -75,7 +97,7 @@ const EventCard = ({ weddingEvent, duration }: EventCardProps) => {
           </button>
         </Link>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

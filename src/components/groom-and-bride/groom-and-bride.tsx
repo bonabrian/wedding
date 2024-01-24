@@ -1,5 +1,5 @@
 import { bride, groom } from '@/data/bride'
-import cn from '@/lib/cn'
+import { cn } from '@/lib/utils'
 
 import BackgroundPattern from '../background-pattern'
 import Heading from '../heading'
@@ -20,14 +20,14 @@ const GroomAndBride = () => {
           <BrideProfile
             name={groom.fullName}
             image={groom.image}
-            birthOrder={groom.birthOrder}
+            type={groom.type}
             fatherName={groom.fatherName}
             motherName={groom.motherName}
           />
           <BrideProfile
             name={bride.fullName}
             image={bride.image}
-            birthOrder={bride.birthOrder}
+            type={bride.type}
             fatherName={bride.fatherName}
             motherName={bride.motherName}
             reverse

@@ -7,7 +7,7 @@ import Snowfall from 'react-snowfall'
 
 import { bride, groom } from '@/data/bride'
 import { footerImage, snowfall } from '@/data/site'
-import cn from '@/lib/cn'
+import { cn } from '@/lib/utils'
 
 const Footer = () => {
   return (
@@ -38,9 +38,7 @@ const Footer = () => {
       >
         <div className="py-0">
           <motion.div
-            className={cn(
-              'text-center mb-16 font-cormorant-upright text-white',
-            )}
+            className={cn('text-center mb-16 text-white')}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -48,14 +46,14 @@ const Footer = () => {
           >
             <h1
               className={cn(
-                'text-red font-semibold text-6xl tracking-tighter',
+                'text-red font-semibold text-6xl tracking-tighter font-cormorant-upright',
                 'md:text-7xl',
                 'lg:text-8xl',
               )}
             >
               {groom.nickName} & {bride.nickName}
             </h1>
-            <h2 className={cn('text-xl', 'md:text-2xl', 'lg:text-3xl')}>
+            <h2 className={cn('md:text-lg', 'lg:text-xl')}>
               Sampai berjumpa di hari bahagia kami
             </h2>
           </motion.div>

@@ -1,16 +1,36 @@
+import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
+import { useRef } from 'react'
 
 import { calendarUrl } from '@/data/site'
 import { weddingEvents } from '@/data/wedding-events'
-import cn from '@/lib/cn'
+import { cn } from '@/lib/utils'
 
 import BackgroundPattern from '../background-pattern'
 import Heading from '../heading'
 import { Calendar } from '../icons'
 import CountdownTimer from './countdown-timer'
 
+const variants = {
+  initial: {
+    y: 50,
+    opacity: 0,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+  },
+  exit: {
+    y: 50,
+    opacity: 0,
+  },
+}
+
 const Countdown = () => {
-  const ceremonyDate = weddingEvents[0].date
+  const ceremonyDate = weddingEvents[1].date
+
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: false, margin: '-120px' })
 
   return (
     <BackgroundPattern coloredPattern>
@@ -19,7 +39,13 @@ const Countdown = () => {
         caption="Hitung Mundur"
         inverseColor
       />
-      <div
+      <motion.div
+        ref={ref}
+        initial="initial"
+        animate={isInView ? 'animate' : 'initial'}
+        exit="exit"
+        variants={variants}
+        transition={{ duration: 0.3 }}
         className={cn('flex flex-col items-center justify-center gap-6 z-10')}
       >
         <CountdownTimer date={ceremonyDate} />
@@ -43,7 +69,7 @@ const Countdown = () => {
 
         <div
           className={cn(
-            'flex flex-col gap-4 justify-center items-center mt-16 text-white font-cormorant-upright',
+            'flex flex-col gap-4 justify-center items-center mt-12 text-white font-cormorant-upright',
           )}
         >
           <p
@@ -63,7 +89,7 @@ const Countdown = () => {
             - Filipi 2:2b; Matius 19:6 -
           </p>
         </div>
-      </div>
+      </motion.div>
     </BackgroundPattern>
   )
 }

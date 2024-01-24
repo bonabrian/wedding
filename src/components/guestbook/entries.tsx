@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-import cn from '@/lib/cn'
+import { cn } from '@/lib/utils'
 import type { Guestbook } from '@/types/guestbook'
 
 import { ChevronUp } from '../icons'

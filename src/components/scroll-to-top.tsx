@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 
 import useOnScroll from '@/hooks/use-on-scroll'
-import cn from '@/lib/cn'
+import { cn } from '@/lib/utils'
 
 import { ChevronUp } from './icons'
 

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 import { bride, groom } from '@/data/bride'
+import { introCover } from '@/data/site'
 import { cn } from '@/lib/utils'
 import type { Guest } from '@/types/guest'
 
@@ -22,7 +23,7 @@ const Intro = ({ guest, onOpenInvitation }: IntroProps) => {
       className={cn('relative h-screen flex flex-col overflow-hidden')}
     >
       <Image
-        src="/images/intro.jpg"
+        src={introCover}
         alt="Intro"
         quality={100}
         fill

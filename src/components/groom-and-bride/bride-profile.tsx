@@ -1,10 +1,12 @@
+import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
+import { useRef, useState } from 'react'
 
-import cn from '@/lib/cn'
+import { cn } from '@/lib/utils'
 
 interface BrideProfileProps {
   name: string
-  birthOrder: string
+  type: 'groom' | 'bride'
   fatherName: string
   motherName: string
   image: string
@@ -13,14 +15,35 @@ interface BrideProfileProps {
 
 const BrideProfile = ({
   name,
-  birthOrder,
+  type,
   fatherName,
   motherName,
   image,
   reverse,
 }: BrideProfileProps) => {
+  const profileRef = useRef<HTMLDivElement>(null)
+  const isInView = useInView(profileRef, { once: false, margin: '-120px' })
+
+  const variants = {
+    initial: { x: reverse ? 50 : -50, opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    exit: { x: reverse ? 50 : -50, opacity: 0 },
+  }
+
+  const [isLoadingImage, setIsLoadingImage] = useState(true)
+
   return (
-    <div
+    <motion.div
+      initial="initial"
+      animate={isInView ? 'animate' : 'initial'}
+      exit="exit"
+      variants={variants}
+      transition={{
+        duration: 1.2,
+        type: 'spring',
+        delay: 0.3,
+      }}
+      ref={profileRef}
       className={cn(
         'flex items-stretch justify-stretch gap-3',
         reverse ? 'flex-row-reverse' : 'flex-row',
@@ -29,15 +52,20 @@ const BrideProfile = ({
     >
       <div
         className={cn(
-          'flex relative aspect-[2/3] rounded-full shadow-[0px_0px_0px_2px_#6D1E1E] basis-1/2',
+          'flex relative aspect-[2/3] rounded-full basis-1/2',
           'lg:basis-full',
+          isLoadingImage ? 'animate-pulse' : '',
         )}
       >
         <Image
           src={image}
           alt={name}
           fill
-          className={cn('rounded-full object-cover')}
+          className={cn(
+            'rounded-full object-cover object-center',
+            isLoadingImage && 'scale-[1.01] blur-xl grayscale',
+          )}
+          onLoad={() => setIsLoadingImage(false)}
         />
       </div>
       <div
@@ -46,9 +74,7 @@ const BrideProfile = ({
           'md:justify-center md:basis-0',
         )}
       >
-        <div
-          className={cn('pb-4 mb-4 border-b-2 border-b-foreground', 'md:pb-8')}
-        >
+        <div className={cn('border-b-2 border-b-foreground pb-3 mb-3')}>
           <h1
             className={cn(
               'text-accent font-cormorant-upright font-bold text-3xl tracking-tighter',
@@ -63,26 +89,24 @@ const BrideProfile = ({
           <h3
             className={cn(
               'text-foreground text-xl font-semibold font-cormorant-upright mb-4',
-              'md:text-2xl md:mb-8',
+              'md:text-2xl',
             )}
           >
-            {birthOrder} dari
+            {`${type === 'groom' ? 'Putra' : 'Putri'}`} dari
           </h3>
           <p
             className={cn(
-              'text-secondary font-cormorant-upright leading-none text-base',
-              'md:text-xl md:leading-tight',
+              'text-secondary font-cormorant-upright flex flex-col leading-none',
+              'md:text-xl',
             )}
           >
-            {fatherName}
-            <br />
-            &
-            <br />
-            {motherName}
+            <span>{fatherName}</span>
+            <span>&</span>
+            <span>{motherName}</span>
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 
 import { bride, groom } from '@/data/bride'
-import cn from '@/lib/cn'
+import { cn } from '@/lib/utils'
 
 import BackgroundPattern from '../background-pattern'
 import Heading from '../heading'

@@ -6,7 +6,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view'
 
 import type { GalleryImage } from '@/data/gallery'
 import { images } from '@/data/gallery'
-import cn from '@/lib/cn'
+import { cn } from '@/lib/utils'
 
 import computeRowLayout from './utils/compute-row-layout'
 import findIdealNodeSearch from './utils/find-ideal-node-search'
@@ -70,6 +70,7 @@ const Gallery = () => {
               width={thumb.width}
               height={thumb.height}
               className={cn('m-0.5 cursor-pointer object-cover')}
+              quality={100}
             />
           </PhotoView>
         ))}

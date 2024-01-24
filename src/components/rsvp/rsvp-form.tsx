@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import type { FormEvent } from 'react'
 import { useState } from 'react'
 
-import cn from '@/lib/cn'
+import { cn } from '@/lib/utils'
 
 import { PaperPlane } from '../icons'
 

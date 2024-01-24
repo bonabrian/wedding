@@ -1,5 +1,6 @@
 import Album from './album'
 import Gallery from './gallery'
+import VideoPlayer from './video-player'
 
-export { Gallery }
+export { Gallery, VideoPlayer }
 export default Album

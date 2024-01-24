@@ -5,9 +5,12 @@ const nextConfig = {
   reactStrictMode: true,
   crossOrigin: 'anonymous',
   images: {
+    formats: ['image/avif', 'image/webp'],
+    dangerouslyAllowSVG: true,
     remotePatterns: [
       { hostname: 'placehold.co' },
       { hostname: 'avatar.oxro.io' },
+      { hostname: 'img.youtube.com' },
     ],
   },
   webpack: (config) => {

@@ -4,7 +4,7 @@ import type { Moment } from 'moment'
 import moment from 'moment'
 import { useEffect, useState } from 'react'
 
-import cn from '@/lib/cn'
+import { cn } from '@/lib/utils'
 
 interface CountdownTimerProps {
   date: string
@@ -19,15 +19,17 @@ interface TimeRemaining {
 
 const Timer = ({ time, label }: { time: number; label: string }) => {
   return (
-    <div
-      className={cn(
-        'flex flex-col items-center gap-3 text-white font-cormorant-upright',
-      )}
-    >
-      <span className={cn('font-bold text-3xl', 'md:text-5xl', 'lg:text-7xl')}>
+    <div className={cn('flex flex-col items-center gap-2 text-white')}>
+      <span className={cn('font-cal text-3xl', 'md:text-5xl', 'lg:text-7xl')}>
         {time.toString().padStart(2, '0')}
       </span>
-      <span className={cn('uppercase text-sm', 'md:text-base', 'lg:text-3xl')}>
+      <span
+        className={cn(
+          'uppercase text-sm font-medium',
+          'md:text-base',
+          'lg:text-xl',
+        )}
+      >
         {label}
       </span>
     </div>
@@ -64,7 +66,7 @@ const CountdownTimer = ({ date }: CountdownTimerProps) => {
   }, [date])
 
   return (
-    <div className={cn('flex gap-4 z-10', 'lg:gap-16')}>
+    <div className={cn('flex gap-4 z-10', 'lg:gap-12')}>
       <Timer time={timeRemaining.days} label="Hari" />
       <Timer time={timeRemaining.hours} label="Jam" />
       <Timer time={timeRemaining.minutes} label="Menit" />

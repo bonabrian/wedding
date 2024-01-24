@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import useGuestbook from '@/hooks/use-guestbook'
-import cn from '@/lib/cn'
+import { cn } from '@/lib/utils'
 import type { Guest } from '@/types/guest'
 
 import BackgroundPattern from '../background-pattern'
@@ -39,7 +39,7 @@ const Guestbook = ({ guest }: GuestbookProps) => {
       />
       <div
         className={cn(
-          'flex flex-col z-10 border border-accent/60 rounded-lg px-8 py-8 space-y-4 mb-4',
+          'flex flex-col z-10 border border-accent/60 rounded-lg p-6 space-y-4 mb-4',
           'sm:mb-8',
           'md:mb-12',
           'lg:mb-16',

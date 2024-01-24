@@ -3,10 +3,22 @@
 import { AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
+import { musicBackground } from '@/data/site'
 import useGuest from '@/hooks/use-guest'
 import { cn } from '@/lib/utils'
 
+import Album from './album'
+import AudioPlayer from './audio-player'
+import Countdown from './countdown'
+import DigitalEnvelope from './digital-envelope'
+import Footer from './footer'
+import Greeting from './greeting'
+import GroomAndBride from './groom-and-bride'
+import Guestbook from './guestbook'
 import Intro from './intro'
+import RSVP from './rsvp'
+import ScrollToTop from './scroll-to-top'
+import Venue from './venue'
 
 interface InvitationProps {
   slug?: string
@@ -15,10 +27,11 @@ interface InvitationProps {
 const Invitation = ({ slug }: InvitationProps) => {
   const { guest, loading } = useGuest(slug)
   const [isInvitationOpened, setIsInvitationOpened] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
 
   const onOpenInvitation = () => {
     setIsInvitationOpened(true)
-    // setIsPlaying(true)
+    setIsPlaying(true)
   }
 
   return (
@@ -50,7 +63,23 @@ const Invitation = ({ slug }: InvitationProps) => {
       ) : (
         <>
           {isInvitationOpened ? (
-            <div>Opened</div>
+            <>
+              <Greeting />
+              <GroomAndBride />
+              <Countdown />
+              <Venue />
+              <RSVP guest={guest} />
+              <Album />
+              <Guestbook guest={guest} />
+              <DigitalEnvelope />
+              <Footer />
+              <AudioPlayer
+                src={musicBackground}
+                isPlaying={isPlaying}
+                togglePlay={() => setIsPlaying(!isPlaying)}
+              />
+              <ScrollToTop />
+            </>
           ) : (
             <Intro guest={guest} onOpenInvitation={onOpenInvitation} />
           )}

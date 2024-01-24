@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 import type { BankAccount } from '@/data/bride'
-import cn from '@/lib/cn'
+import { cn } from '@/lib/utils'
 
 import { Copy } from '../icons'
 
@@ -29,7 +29,7 @@ const DebitCard = ({ bankAccount }: DebitCardProps) => {
   return (
     <div
       className={cn(
-        'flex flex-col bg-white py-4 px-8 rounded-xl shadow-xl items-center justify-center font-averia',
+        'flex flex-col bg-white py-4 px-8 rounded-xl shadow-xl items-center justify-center',
       )}
     >
       <Image
@@ -48,7 +48,7 @@ const DebitCard = ({ bankAccount }: DebitCardProps) => {
         </div>
         <button
           className={cn(
-            'inline-flex items-center gap-2 border-2 px-3.5 py-1.5 bg-input border-white rounded-md text-white transition-colors duration-150 ease-in-out font-averia',
+            'inline-flex items-center gap-2 border-2 px-3.5 py-1.5 bg-input border-white rounded-md text-white transition-colors duration-150 ease-in-out',
             'hover:bg-input/90',
           )}
           onClick={copyToClipboard}

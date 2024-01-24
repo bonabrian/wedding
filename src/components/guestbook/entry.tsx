@@ -3,7 +3,7 @@ import 'moment/locale/id'
 import moment from 'moment'
 import Image from 'next/image'
 
-import cn from '@/lib/cn'
+import { cn } from '@/lib/utils'
 import type { Guestbook } from '@/types/guestbook'
 
 interface EntryProps {

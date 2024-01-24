@@ -9,7 +9,6 @@ const config: Config = {
         sans: ['var(--font-plus-jakarta)', ...fontFamily.sans],
         rochester: ['var(--font-rochester)'],
         'cormorant-upright': ['var(--font-cormorant-upright)'],
-        averia: ['var(--font-averia)'],
         cal: ['var(--font-cal)'],
       },
       colors: {
