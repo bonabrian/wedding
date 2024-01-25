@@ -16,6 +16,7 @@ interface IntroProps {
 
 const Intro = ({ guest, onOpenInvitation }: IntroProps) => {
   const [isHovered, setIsHovered] = useState(false)
+  const isGuestAvailable = Boolean(guest?.id)
 
   return (
     <section
@@ -72,10 +73,14 @@ const Intro = ({ guest, onOpenInvitation }: IntroProps) => {
               'flex flex-col text-balance justify-center items-center text-center text-white mt-4',
             )}
           >
-            <p className={cn('md:text-lg')}>Kepada Yth:</p>
-            <p className={cn('text-xl', 'md:text-xl font-cal')}>
-              {guest?.id && guest?.name ? guest?.name : 'Guest Name'}
-            </p>
+            {isGuestAvailable && (
+              <>
+                <p className={cn('md:text-lg')}>Kepada Yth:</p>
+                <p className={cn('text-xl', 'md:text-xl font-cal')}>
+                  {guest?.id && guest?.name ? guest?.name : 'Guest Name'}
+                </p>
+              </>
+            )}
             <button
               className={cn(
                 'inline-flex gap-2 mt-4 items-center border-2 border-red py-2 px-3.5 rounded-xl transition-all duration-300',
@@ -85,11 +90,11 @@ const Intro = ({ guest, onOpenInvitation }: IntroProps) => {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
               onClick={onOpenInvitation}
-              disabled={!guest?.id}
+              disabled={!isGuestAvailable}
             >
               {isHovered ? <EnvelopeOpen /> : <EnvelopeClose />}
               <span>
-                {!guest?.id
+                {!isGuestAvailable
                   ? 'Ups! Ini khusus buat tamu undangan ya'
                   : 'Buka Undangan'}
               </span>
