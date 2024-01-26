@@ -57,7 +57,7 @@ const EntryForm = ({ onSubmit }: EntryFormProps) => {
       <div className={cn('flex justify-end')}>
         <button
           className={cn(
-            'inline-flex items-center gap-2 border-2 px-3.5 py-1.5 bg-input border-white rounded-md text-white transition-colors duration-150 ease-in-out',
+            'inline-flex items-center gap-2 px-3.5 py-1.5 bg-red rounded-md text-white transition-colors duration-150 ease-in-out',
             'disabled:cursor-not-allowed disabled:opacity-70',
           )}
           disabled={isSending || !message}
