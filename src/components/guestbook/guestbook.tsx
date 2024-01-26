@@ -20,7 +20,7 @@ const Guestbook = ({ guest }: GuestbookProps) => {
   const handleOnSubmit = async (message: string) => {
     try {
       await addEntry({ guest: guest?.slug ?? '', message })
-      mutate()
+      mutate(entires)
       setResetPage(true)
 
       setTimeout(() => {
