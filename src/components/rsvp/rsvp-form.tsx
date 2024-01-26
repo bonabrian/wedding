@@ -1,5 +1,6 @@
 'use client'
 
+import type { RSVP } from '@prisma/client'
 import { Attendance } from '@prisma/client'
 import { motion } from 'framer-motion'
 import type { FormEvent } from 'react'
@@ -10,12 +11,14 @@ import { cn } from '@/lib/utils'
 import { PaperPlane } from '../icons'
 
 export interface RSVPFormBody {
-  numberOfGuest: string
+  numberOfGuest: string | number
   attendance: Attendance
 }
 
 interface RSVPFormProps {
   onSubmit: (body: RSVPFormBody) => Promise<void>
+  isEditing?: boolean
+  rsvp?: RSVP
 }
 
 const attendanceLabel = {
@@ -25,10 +28,10 @@ const attendanceLabel = {
   [Attendance.NOTCONFIRMED]: 'Belum dikonfirmasi',
 }
 
-const RSVPForm = ({ onSubmit }: RSVPFormProps) => {
-  const [numberOfGuest, setNumberOfGuest] = useState('')
+const RSVPForm = ({ onSubmit, isEditing, rsvp }: RSVPFormProps) => {
+  const [numberOfGuest, setNumberOfGuest] = useState(rsvp?.numberOfGuest ?? '')
   const [attendance, setAttendance] = useState<keyof typeof Attendance>(
-    Attendance.NOTCONFIRMED,
+    rsvp?.attendance ?? Attendance.NOTCONFIRMED,
   )
   const [formError, setFormError] = useState(false)
   const [isSending, setIsSending] = useState(false)
@@ -77,7 +80,7 @@ const RSVPForm = ({ onSubmit }: RSVPFormProps) => {
                 value={value}
                 type="radio"
                 className="h-4 w-4 border-gray-300 text-red focus:ring-red"
-                checked={numberOfGuest === value}
+                checked={numberOfGuest.toString() === value}
                 onChange={(e) => setNumberOfGuest(e.target.value)}
               />
               <label
@@ -143,8 +146,8 @@ const RSVPForm = ({ onSubmit }: RSVPFormProps) => {
       <div className={cn('flex')}>
         <button
           className={cn(
-            'inline-flex items-center gap-2 border-2 px-3.5 py-1.5 border-white rounded-md text-white transition-colors duration-150 ease-in-out',
-            'hover:bg-input',
+            'inline-flex items-center gap-2 border-2 px-3.5 py-1.5 border-red rounded-md text-white transition-colors duration-150 ease-in-out',
+            'hover:bg-red',
             'disabled:cursor-not-allowed disabled:opacity-80 disabled:hover:bg-transparent',
           )}
           disabled={
@@ -154,7 +157,9 @@ const RSVPForm = ({ onSubmit }: RSVPFormProps) => {
           }
         >
           <PaperPlane />
-          {isSending ? 'Mengirim...' : 'Kirim'}
+          {isSending
+            ? `${isEditing ? 'Menyimpan...' : 'Mengirim...'}`
+            : `${isEditing ? 'Simpan' : 'Kirim'}`}
         </button>
       </div>
     </form>

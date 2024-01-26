@@ -5,26 +5,6 @@ import type { Attendance } from '@prisma/client'
 import prisma from '@/lib/prisma'
 import type { Guestbook } from '@/types/guestbook'
 
-export const addRSVP = async (
-  guestId: number,
-  numberOfGuest: number,
-  attendance: Attendance,
-) => {
-  await prisma.rSVP.upsert({
-    where: { guestId },
-    update: {
-      numberOfGuest,
-      attendance,
-      updatedAt: new Date(),
-    },
-    create: {
-      guestId,
-      numberOfGuest,
-      attendance,
-    },
-  })
-}
-
 export const addGuestbook = async (
   guestId: number,
   message: string,

@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server'
 
+import { addRSVP, findGuestBySlug } from '@/lib/actions'
 import { getErrorMessage, response } from '@/lib/api'
-import { addRSVP, findGuestBySlug } from '@/lib/db'
 
 export const POST = async (req: NextRequest) => {
   try {

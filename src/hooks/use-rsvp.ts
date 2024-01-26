@@ -1,6 +1,10 @@
-import type { Attendance } from '@prisma/client'
+import type { Attendance, RSVP } from '@prisma/client'
 
-const useRSVP = () => {
+import useRequest from './use-request'
+
+const useRSVP = (slug: string) => {
+  const { data, loading, mutate } = useRequest<RSVP>(`/api/rsvp/${slug}`)
+
   const addRSVP = async ({
     slug,
     numberOfGuest,
@@ -15,12 +19,14 @@ const useRSVP = () => {
         method: 'POST',
         body: JSON.stringify({ slug, numberOfGuest, attendance }),
       })
+
+      mutate(data)
     } catch (err) {
-      console.error('An error occured on addRSVP', err)
+      console.error('An error occurred on addRSVP', err)
     }
   }
 
-  return { addRSVP }
+  return { data, loading, addRSVP }
 }
 
 export default useRSVP
