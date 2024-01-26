@@ -1,7 +1,8 @@
 import type { NextRequest } from 'next/server'
 
+import { findGuestBySlug } from '@/lib/actions'
 import { getErrorMessage, response } from '@/lib/api'
-import { addGuestbook, findGuestBySlug, getGuestbookEntries } from '@/lib/db'
+import { addGuestbook, getGuestbookEntries } from '@/lib/db'
 
 export const GET = async () => {
   try {
