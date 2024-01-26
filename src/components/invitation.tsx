@@ -26,7 +26,7 @@ interface InvitationProps {
 
 const Invitation = ({ slug }: InvitationProps) => {
   const { guest, loading } = useGuest(slug)
-  const [isInvitationOpened, setIsInvitationOpened] = useState(true)
+  const [isInvitationOpened, setIsInvitationOpened] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
 
   const onOpenInvitation = () => {
