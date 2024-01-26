@@ -87,56 +87,6 @@ const Invitation = ({ slug }: InvitationProps) => {
       )}
     </AnimatePresence>
   )
-  // const [isPlaying, setIsPlaying] = useState(false)
-  // const [showCover, setShowCover] = useState(true)
-  // const [invitedGuest, setInvitedGuest] = useState(true)
-
-  // const searchParams = useSearchParams()
-  // const slug = searchParams.get('to')
-
-  // const { guest, loading } = useGuest(slug ?? '')
-
-  // const onOpenInvitation = () => {
-  //   setShowCover(false)
-  //   setIsPlaying(true)
-  // }
-
-  // useEffect(() => {
-  //   if ((guest && !('id' in guest)) || !slug) {
-  //     setInvitedGuest(false)
-  //   }
-  // }, [guest, slug])
-
-  // return (
-  //   <AnimatePresence>
-  //     {showCover ? (
-  //       <FrontCover
-  //         guest={guest?.name}
-  //         onOpenInvitation={onOpenInvitation}
-  //         invitedGuest={invitedGuest}
-  //         loading={loading}
-  //       />
-  //     ) : (
-  //       <>
-  //         <Hero />
-  //         <GroomAndBride />
-  //         <Countdown />
-  //         <Venue />
-  //         <RSVP guest={guest} />
-  //         <Album />
-  //         <Guestbook guest={guest} />
-  //         <DigitalEnvelope />
-  //         <Footer />
-  //         <AudioPlayer
-  //           src={mainAudio}
-  //           isPlaying={isPlaying}
-  //           togglePlay={() => setIsPlaying(!isPlaying)}
-  //         />
-  //         <ScrollToTop />
-  //       </>
-  //     )}
-  //   </AnimatePresence>
-  // )
 }
 
 export default Invitation
