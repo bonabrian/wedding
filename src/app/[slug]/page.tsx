@@ -1,4 +1,32 @@
 import Invitation from '@/components/invitation'
+import { BASE_URL, fullURL } from '@/data/site'
+import { findGuestBySlug } from '@/lib/actions'
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { slug: string }
+}) => {
+  let imageUrl = `${BASE_URL}/api/og`
+  const guest = await findGuestBySlug(params.slug)
+
+  if (guest) {
+    imageUrl += `?guest=${guest.name.replaceAll('&', '@')}`
+  }
+
+  return {
+    metadataBase: fullURL(),
+    title: 'Undangan Pernikahan Bona & Silvia',
+    description: 'Pernikahan Bona & Silvia',
+    openGraph: {
+      title: 'Undangan Pernikahan Bona & Silvia',
+      description: 'Pernikahan Bona & Silvia',
+      images: imageUrl,
+      url: '/',
+      type: 'website',
+    },
+  }
+}
 
 const GuestPage = ({ params }: { params: { slug: string } }) => {
   const slug = params.slug === 'guest' ? undefined : params.slug

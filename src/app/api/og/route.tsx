@@ -20,10 +20,13 @@ const alexBrushRegular = fetch(
   new URL('../../../../assets/fonts/AlexBrush-Regular.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer())
 
-export const GET = async (_req: NextRequest) => {
+export const GET = async (req: NextRequest) => {
   const fontPlusJakartaSansLight = await plusJakartaSansLight
   const fontPlusJakartaSansBold = await plusJakartaSansBold
   const fontAlexBrushRegular = await alexBrushRegular
+
+  const { searchParams } = new URL(req.url)
+  const guestName = searchParams.get('guest')
 
   try {
     return new ImageResponse(
@@ -65,6 +68,30 @@ export const GET = async (_req: NextRequest) => {
             >
               Undangan Pernikahan
             </h2>
+            {guestName && (
+              <div tw="flex flex-col justify-center items-center">
+                <p
+                  tw="mb-0"
+                  style={{
+                    fontFamily: 'PlusJakartaSans-Light',
+                    fontSize: '14px',
+                    textAlign: 'center',
+                  }}
+                >
+                  Kepada:
+                </p>
+                <p
+                  tw="m-0 mt-1"
+                  style={{
+                    fontFamily: 'PlusJakartaSans-Bold',
+                    fontSize: '16px',
+                    textAlign: 'center',
+                  }}
+                >
+                  {guestName.replace('@', '&')}
+                </p>
+              </div>
+            )}
           </div>
           <p
             tw="mb-8"
