@@ -4,6 +4,7 @@ import { addRSVP, findGuestBySlug } from '@/lib/actions'
 import { getErrorMessage, response } from '@/lib/api'
 
 export const dynamic = 'force-dynamic'
+export const preferredRegion = ['sin1']
 
 export const POST = async (req: NextRequest) => {
   try {
