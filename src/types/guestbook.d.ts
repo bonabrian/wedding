@@ -1,7 +1,7 @@
 import type { Guest } from './guest'
 
 export interface Guestbook {
-  id: number
+  id?: string
   message: string
   createdAt: Date
   guest: Guest

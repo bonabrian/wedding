@@ -14,7 +14,7 @@ export const findGuestBySlug = async (slug: string): Promise<Guest | null> => {
 }
 
 export const findRSVPByGuestId = async (
-  guestId: number,
+  guestId: string | undefined,
 ): Promise<RSVP | null> => {
   return await prisma.rSVP.findFirst({
     where: { guestId },
@@ -31,7 +31,7 @@ export const findRSVPByGuestId = async (
 }
 
 export const addRSVP = async (
-  guestId: number,
+  guestId: string | undefined,
   numberOfGuest: number,
   attendance: Attendance,
 ) => {
@@ -51,7 +51,7 @@ export const addRSVP = async (
 }
 
 export const addGuestbook = async (
-  guestId: number,
+  guestId: string | undefined,
   message: string,
   userAgent: string,
 ) => {
@@ -77,7 +77,7 @@ export const getGuestbookEntries = async () => {
       message,
       createdAt,
       guest: {
-        id: guest?.id ?? 0,
+        id: guest?.id ?? '',
         slug: guest?.slug ?? '',
         name: guest?.name ?? '',
       },
