@@ -13,21 +13,21 @@ export interface WeddingEvent {
 export const weddingEvents: WeddingEvent[] = [
   {
     name: 'ceremony',
-    date: 'April 20, 2024 08:00:00 UTC+07:00',
+    date: 'April 20, 2024 09:00:00 UTC+07:00',
     place: {
-      location: 'GPdI Baithani Pangalengan',
+      location: 'Gedung R.A. Wiriadinata',
       address:
-        'Jl. Situ Cileunca No.34, Sidamukti Kidul RT 07/05, Pangalengan, Kec. Pangalengan, Bandung Selatan, Jawa Barat 40378',
-      map: 'https://maps.app.goo.gl/8HH4bnY8YUjQNuYS7',
+        'Jl. Terusan Kopo No.Km 9, RW.5, Sulaiman, Kec. Margahayu, Kabupaten Bandung, Jawa Barat 40222 (GPdI Baithani Pangalengan)',
+      map: 'https://maps.app.goo.gl/TKZrWEQSYYT4PrPi7',
     },
   },
   {
     name: 'reception',
-    date: 'April 20, 2024 11:00:00 UTC+07:00',
+    date: 'April 20, 2024 11:30:00 UTC+07:00',
     place: {
       location: 'Gedung R.A. Wiriadinata',
       address:
-        'Jl. Terusan Kopo No.Km, RW.5, Sulaiman, Kec. Margahayu, Kabupaten Bandung, Jawa Barat 40222',
+        'Jl. Terusan Kopo No.Km 9, RW.5, Sulaiman, Kec. Margahayu, Kabupaten Bandung, Jawa Barat 40222',
       map: 'https://maps.app.goo.gl/TKZrWEQSYYT4PrPi7',
     },
   },
