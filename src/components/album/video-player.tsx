@@ -8,7 +8,7 @@ interface VideoPlayerProps {
   youtubeID: string
   title?: string
   thumbnailOverride?: string
-  onVideoStateChange: (state: 'playing' | 'paused') => void
+  onVideoStateChange: (state: 'playing' | 'paused' | 'end') => void
 }
 
 const VideoPlayer = ({
@@ -35,6 +35,7 @@ const VideoPlayer = ({
           }}
           onPlay={() => onVideoStateChange('playing')}
           onPause={() => onVideoStateChange('paused')}
+          onEnd={() => onVideoStateChange('end')}
         />
       ) : (
         <button

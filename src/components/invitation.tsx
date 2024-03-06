@@ -34,10 +34,10 @@ const Invitation = ({ slug }: InvitationProps) => {
     setIsPlaying(true)
   }
 
-  const handleVideoStateChange = (state: 'playing' | 'paused') => {
+  const handleVideoStateChange = (state: 'playing' | 'paused' | 'end') => {
     if (state === 'playing') {
       setIsPlaying(false)
-    } else if (state === 'paused') {
+    } else if (state === 'paused' || state === 'end') {
       setIsPlaying(true)
     }
   }

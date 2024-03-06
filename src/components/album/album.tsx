@@ -25,7 +25,7 @@ const variants = {
 }
 
 interface AlbumProps {
-  onVideoStateChange: (state: 'playing' | 'paused') => void
+  onVideoStateChange: (state: 'playing' | 'paused' | 'end') => void
 }
 
 const Album = ({ onVideoStateChange }: AlbumProps) => {
