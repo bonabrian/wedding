@@ -23,7 +23,7 @@ export const groom: Bride = {
   image: '/images/groom.jpg',
   bankAccount: {
     name: 'Bona Brian Siagian',
-    number: '12345678',
+    number: '7771836449',
     logo: '/images/bca.png',
   },
 }
@@ -37,7 +37,7 @@ export const bride: Bride = {
   image: '/images/bride.jpg',
   bankAccount: {
     name: 'Silvia Novianty',
-    number: '87654321',
+    number: '3750028399',
     logo: '/images/bca.png',
   },
 }
