@@ -34,6 +34,14 @@ const Invitation = ({ slug }: InvitationProps) => {
     setIsPlaying(true)
   }
 
+  const handleVideoStateChange = (state: 'playing' | 'paused') => {
+    if (state === 'playing') {
+      setIsPlaying(false)
+    } else if (state === 'paused') {
+      setIsPlaying(true)
+    }
+  }
+
   return (
     <AnimatePresence>
       {loading ? (
@@ -69,7 +77,7 @@ const Invitation = ({ slug }: InvitationProps) => {
               <Countdown />
               <Venue />
               <RSVP guest={guest} />
-              <Album />
+              <Album onVideoStateChange={handleVideoStateChange} />
               <Guestbook guest={guest} />
               <DigitalEnvelope />
               <Footer />

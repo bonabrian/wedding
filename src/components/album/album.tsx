@@ -24,7 +24,11 @@ const variants = {
   },
 }
 
-const Album = () => {
+interface AlbumProps {
+  onVideoStateChange: (state: 'playing' | 'paused') => void
+}
+
+const Album = ({ onVideoStateChange }: AlbumProps) => {
   const albumRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(albumRef, { once: false, margin: '-120px' })
 
@@ -49,6 +53,7 @@ const Album = () => {
           title="Bona & Silvia"
           youtubeID={youtubeVideoID}
           thumbnailOverride={videoThumb}
+          onVideoStateChange={onVideoStateChange}
         />
         <div className={cn('w-full overflow-auto')}>
           <Gallery />

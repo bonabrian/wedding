@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { useState } from 'react'
+import Player from 'react-youtube'
 
 import { cn } from '@/lib/utils'
 
@@ -7,27 +8,33 @@ interface VideoPlayerProps {
   youtubeID: string
   title?: string
   thumbnailOverride?: string
+  onVideoStateChange: (state: 'playing' | 'paused') => void
 }
 
 const VideoPlayer = ({
   youtubeID,
   title,
   thumbnailOverride,
+  onVideoStateChange,
 }: VideoPlayerProps) => {
   const [showVideo, setShowVideo] = useState(false)
 
   return (
     <>
       {showVideo ? (
-        <iframe
-          width={560}
-          height={315}
-          src={`https://www.youtube-nocookie.com/embed/${youtubeID}?autoplay=1`}
-          frameBorder={0}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          title={title || 'Youtube video'}
-          className="aspect-[16/9] h-full w-full p-0 rounded-lg"
+        <Player
+          videoId={youtubeID}
+          iframeClassName={cn('aspect-[16/9] h-full w-full p-0 rounded-lg')}
+          opts={{
+            width: 560,
+            height: 315,
+            playerVars: {
+              autoplay: 1,
+              rel: 0,
+            },
+          }}
+          onPlay={() => onVideoStateChange('playing')}
+          onPause={() => onVideoStateChange('paused')}
         />
       ) : (
         <button
