@@ -51,7 +51,7 @@ const VideoPlayer = ({
             }
             fill
             alt={title ?? ''}
-            className={cn('h-full w-full rounded-lg')}
+            className={cn('h-full w-full rounded-lg object-cover')}
             loading="lazy"
           />
           <div className="relative grid place-items-center text-xl text-white opacity-90">
