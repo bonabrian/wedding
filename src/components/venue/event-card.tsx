@@ -12,7 +12,7 @@ import { MapPin } from '../icons'
 
 interface EventCardProps {
   weddingEvent: WeddingEvent
-  durationInHour: number
+  durationInHour: number | null
 }
 
 const eventTitles: Record<string, string> = {
@@ -68,10 +68,16 @@ const EventCard = ({ weddingEvent, durationInHour }: EventCardProps) => {
           <div>{eventDateTime.year()}</div>
         </div>
         <h3>
-          {eventDateTime.format('HH')}:{eventDateTime.format('mm')} -{' '}
-          {eventDateTime.add(durationInHour, 'hour').format('HH')}:
-          {eventDateTime.add(durationInHour, 'hour').format('mm')}
-          <span className={cn('ml-1')}>WIB</span>
+          {eventDateTime.format('HH')}:{eventDateTime.format('mm')} WIB -{' '}
+          {durationInHour ? (
+            <>
+              {eventDateTime.add(durationInHour, 'hour').format('HH')}:
+              {eventDateTime.add(durationInHour, 'hour').format('mm')}
+              <span className={cn('ml-1')}>WIB</span>
+            </>
+          ) : (
+            <span>Selesai</span>
+          )}
         </h3>
       </div>
       <div
