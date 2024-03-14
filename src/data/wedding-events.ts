@@ -23,7 +23,7 @@ export const weddingEvents: WeddingEvent[] = [
   },
   {
     name: 'reception',
-    date: 'April 20, 2024 11:30:00 UTC+07:00',
+    date: 'April 20, 2024 11:00:00 UTC+07:00',
     place: {
       location: 'Gedung R.A. Wiriadinata',
       address:
