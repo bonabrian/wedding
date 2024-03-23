@@ -1,10 +1,12 @@
 'use client'
 
 import { AnimatePresence } from 'framer-motion'
+import { useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 
 import { musicBackground } from '@/data/site'
 import useGuest from '@/hooks/use-guest'
+import useTrackGuestVisit from '@/hooks/use-track-guest-visit'
 import { cn } from '@/lib/utils'
 
 import Album from './album'
@@ -28,6 +30,10 @@ const Invitation = ({ slug }: InvitationProps) => {
   const { guest, loading } = useGuest(slug)
   const [isInvitationOpened, setIsInvitationOpened] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
+  const searchParams = useSearchParams()
+  const source = searchParams.get('source')
+
+  useTrackGuestVisit({ slug, source })
 
   const onOpenInvitation = () => {
     setIsInvitationOpened(true)

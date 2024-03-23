@@ -1,6 +1,6 @@
 'use server'
 
-import type { Attendance, RSVP } from '@prisma/client'
+import type { Attendance, RSVP, Source } from '@prisma/client'
 
 import prisma from '@/lib/prisma'
 import type { Guest } from '@/types/guest'
@@ -40,7 +40,6 @@ export const addRSVP = async (
     update: {
       numberOfGuest,
       attendance,
-      updatedAt: new Date(),
     },
     create: {
       guestId,
@@ -53,14 +52,12 @@ export const addRSVP = async (
 export const addGuestbook = async (
   guestId: string | undefined,
   message: string,
-  userAgent: string,
 ) => {
   const trimmedMessage = message.trim()
   await prisma.guestbook.create({
     data: {
       guestId,
       message: trimmedMessage,
-      userAgent,
     },
   })
 }
@@ -85,5 +82,23 @@ export const getGuestbookEntries = async () => {
   } catch (err) {
     console.error('Error getting guestbook entries: ', err)
     return []
+  }
+}
+
+export const addGuestVisit = async (
+  guestId?: string,
+  source?: Source,
+  userAgent?: string,
+) => {
+  try {
+    await prisma.guestVisits.create({
+      data: {
+        guestId,
+        source,
+        userAgent,
+      },
+    })
+  } catch (err) {
+    throw err
   }
 }

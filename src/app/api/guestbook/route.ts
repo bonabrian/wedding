@@ -22,7 +22,7 @@ export const GET = async () => {
 export const POST = async (req: NextRequest) => {
   try {
     const body = await req.json()
-    const { guest: slug, message, userAgent } = body
+    const { guest: slug, message } = body
 
     const guest = await findGuestBySlug(slug)
 
@@ -30,7 +30,7 @@ export const POST = async (req: NextRequest) => {
       return response({ message: 'Not Found' }, 404)
     }
 
-    await addGuestbook(guest.id, message, userAgent)
+    await addGuestbook(guest.id, message)
 
     return response({}, 201)
   } catch (err) {
