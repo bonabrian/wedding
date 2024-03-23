@@ -6,20 +6,21 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
 
 model Guest {
-  id        String    @id @default(uuid()) @db.Uuid
-  slug      String    @db.VarChar(255)
-  name      String    @db.VarChar(255)
+  id          String        @id @default(uuid()) @db.Uuid
+  slug        String        @db.VarChar(255)
+  name        String        @db.VarChar(255)
   phoneNumber String?
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  rsvp      RSVP?
-  guestbook Guestbook[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  rsvp        RSVP?
+  guestbook   Guestbook[]
+  GuestVisits GuestVisits[]
 
   @@map("guests")
 }
@@ -32,27 +33,44 @@ enum Attendance {
 }
 
 model RSVP {
-  id            String      @id @default(uuid()) @db.Uuid
-  guestId       String?     @unique @db.Uuid
-  attendance    Attendance  @default(NOTCONFIRMED)
-  numberOfGuest Int         @default(1)
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
-  guest         Guest?      @relation(fields: [guestId], references: [id], onDelete: Cascade)
+  id            String     @id @default(uuid()) @db.Uuid
+  guestId       String?    @unique @db.Uuid
+  attendance    Attendance @default(NOTCONFIRMED)
+  numberOfGuest Int        @default(1)
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  guest         Guest?     @relation(fields: [guestId], references: [id], onDelete: Cascade)
 
   @@index([guestId])
   @@map("rsvp")
 }
 
 model Guestbook {
-  id              String        @id @default(uuid()) @db.Uuid
-  guestId         String?       @db.Uuid
-  guest           Guest?        @relation(fields: [guestId], references: [id], onDelete: Cascade)
-  message         String        @db.VarChar(1024)
-  createdAt       DateTime      @default(now())
-  updatedAt       DateTime      @updatedAt
-  userAgent       String?
+  id        String   @id @default(uuid()) @db.Uuid
+  guestId   String?  @db.Uuid
+  guest     Guest?   @relation(fields: [guestId], references: [id], onDelete: Cascade)
+  message   String   @db.VarChar(1024)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@index([guestId])
   @@map("guestbook")
+}
+
+enum Source {
+  QRCODE
+  DIRECT
+}
+
+model GuestVisits {
+  id        String   @id @default(uuid()) @db.Uuid
+  guestId   String?  @db.Uuid
+  guest     Guest?   @relation(fields: [guestId], references: [id], onDelete: Cascade)
+  source    Source   @default(DIRECT)
+  userAgent String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([guestId])
+  @@map("guestVisits")
 }
