@@ -7,7 +7,7 @@ const useGuest = (slug?: string) => {
     data: guest,
     loading,
     error,
-  } = useRequest<Guest>(`/api/guest/${slug}`)
+  } = useRequest<Guest>(`/api/guests/${slug}`)
 
   return { guest, loading, error }
 }

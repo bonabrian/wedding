@@ -2,7 +2,8 @@ import { Source } from '@prisma/client'
 import type { NextRequest } from 'next/server'
 import { userAgent } from 'next/server'
 
-import { addGuestVisit, findGuestBySlug } from '@/lib/actions'
+import { create } from '@/actions/guest-visits'
+import { findBySlug } from '@/actions/guests'
 import { getErrorMessage, response } from '@/lib/api'
 
 export const POST = async (req: NextRequest) => {
@@ -10,7 +11,7 @@ export const POST = async (req: NextRequest) => {
     const body = await req.json()
     const { guest: slug, source } = body
 
-    const guest = await findGuestBySlug(slug)
+    const guest = await findBySlug(slug)
 
     if (!guest) {
       return response({ message: 'Not Found' }, 404)
@@ -20,11 +21,7 @@ export const POST = async (req: NextRequest) => {
 
     const _userAgent = userAgent(req)
 
-    await addGuestVisit(
-      guest.id,
-      sourceType as Source,
-      JSON.stringify(_userAgent),
-    )
+    await create(guest.id, sourceType as Source, JSON.stringify(_userAgent))
 
     return response({}, 201)
   } catch (err) {

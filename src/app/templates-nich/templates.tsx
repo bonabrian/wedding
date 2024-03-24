@@ -3,13 +3,10 @@
 import type { ChangeEvent } from 'react'
 import { useState } from 'react'
 
-import type { Guest } from '@/types/guest'
+import useGuests from '@/hooks/use-guests'
 
-interface TemplatesProps {
-  guests: Array<Guest>
-}
-
-const Templates = ({ guests }: TemplatesProps) => {
+const Templates = () => {
+  const { guests } = useGuests()
   const [searchVal, setSearchVal] = useState('')
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -17,9 +14,10 @@ const Templates = ({ guests }: TemplatesProps) => {
     setSearchVal(value)
   }
 
-  const filteredGuests = guests.filter((guest) =>
-    guest.name.toLowerCase().includes(searchVal.toLowerCase()),
-  )
+  const filteredGuests =
+    guests?.filter((guest) =>
+      guest.name.toLowerCase().includes(searchVal.toLowerCase()),
+    ) ?? []
 
   return (
     <div className="max-w-xl mx-auto py-8 px-4 space-y-8">

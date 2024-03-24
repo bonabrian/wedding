@@ -1,11 +1,7 @@
-import prisma from '@/lib/prisma'
-
 import Templates from './templates'
 
-const TemplatesPage = async () => {
-  const guests = await prisma.guest.findMany()
-
-  return <Templates guests={guests} />
+const TemplatesPage = () => {
+  return <Templates />
 }
 
 export default TemplatesPage

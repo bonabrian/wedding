@@ -9,7 +9,7 @@ const useTrackGuestVisit = ({
 }) => {
   useEffect(() => {
     const addGuestVisit = async (_slug?: string, _source?: string | null) => {
-      await fetch(`/api/guest/${_slug}/visit`, {
+      await fetch(`/api/guests/${_slug}/visit`, {
         method: 'POST',
         body: JSON.stringify({ guest: _slug, source: _source }),
       })
