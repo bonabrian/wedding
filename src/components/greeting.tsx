@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import moment from 'moment'
 import Image from 'next/image'
 import type { ComponentProps } from 'react'
+import Balancer from 'react-wrap-balancer'
 
 import { bride, groom } from '@/data/bride'
 import { greetingLandscape, greetingPortrait } from '@/data/site'
@@ -89,11 +90,13 @@ const Greeting = () => {
             )}
           >
             <p className={cn('text-center text-white mb-4', 'md:text-lg')}>
-              Tanpa Mengurangi Rasa Hormat
-              <br />
-              Kami Mengundang Bapak/Ibu/Saudara/i
-              <br />
-              Untuk Hadir Di Acara Pernikahan Kami.
+              <Balancer>
+                Tanpa Mengurangi Rasa Hormat
+                <br />
+                Kami Mengundang Bapak/Ibu/Saudara/i
+                <br />
+                Untuk Hadir Di Acara Pernikahan Kami.
+              </Balancer>
             </p>
             <h3
               className={cn(

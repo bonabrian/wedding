@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import { type ComponentProps, useRef } from 'react'
+import Balancer from 'react-wrap-balancer'
 
 import { cn } from '@/lib/utils'
 
@@ -65,7 +66,7 @@ const Heading = ({
             inverseColor ? 'text-white' : 'text-foreground',
           )}
         >
-          {caption}
+          <Balancer>{caption}</Balancer>
         </h3>
       )}
       <h1
@@ -76,7 +77,7 @@ const Heading = ({
           inverseColor ? 'text-white' : 'text-accent',
         )}
       >
-        {title}
+        <Balancer>{title}</Balancer>
       </h1>
       {description && (
         <p
@@ -86,7 +87,7 @@ const Heading = ({
             inverseColor ? 'text-white' : 'text-foreground',
           )}
         >
-          {description}
+          <Balancer>{description}</Balancer>
         </p>
       )}
       {!inverseColor && (

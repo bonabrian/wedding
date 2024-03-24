@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion'
 import moment from 'moment'
 import Link from 'next/link'
 import { useRef } from 'react'
+import Balancer from 'react-wrap-balancer'
 
 import type { WeddingEvent } from '@/data/wedding-events'
 import { cn } from '@/lib/utils'
@@ -85,8 +86,12 @@ const EventCard = ({ weddingEvent, durationInHour }: EventCardProps) => {
           'flex flex-col items-center justify-center text-center gap-1',
         )}
       >
-        <p className={cn('font-bold text-2xl')}>{location}</p>
-        <p className={cn('text-secondary')}>{address}</p>
+        <p className={cn('font-bold text-2xl')}>
+          <Balancer>{location}</Balancer>
+        </p>
+        <p className={cn('text-secondary')}>
+          <Balancer>{address}</Balancer>
+        </p>
         <Link
           href={map}
           target="_blank"

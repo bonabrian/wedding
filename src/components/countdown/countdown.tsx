@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 import { useRef } from 'react'
+import Balancer from 'react-wrap-balancer'
 
 import { calendarUrl } from '@/data/site'
 import { weddingEvents } from '@/data/wedding-events'
@@ -75,9 +76,12 @@ const Countdown = () => {
           <p
             className={cn('text-center text-base', 'md:text-lg', 'lg:text-xl')}
           >
-            “Hendaklah kamu sehati sepikir, dalam satu kasih, satu jiwa, satu
-            tujuan. Demikianlah mereka bukan lagi dua melainkan satu. Karena itu
-            apa yang telah dipersatukan Allah, tidak boleh diceraikan manusia.”
+            <Balancer>
+              “Hendaklah kamu sehati sepikir, dalam satu kasih, satu jiwa, satu
+              tujuan. Demikianlah mereka bukan lagi dua melainkan satu. Karena
+              itu apa yang telah dipersatukan Allah, tidak boleh diceraikan
+              manusia.”
+            </Balancer>
           </p>
           <p
             className={cn(

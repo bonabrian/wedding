@@ -4,6 +4,7 @@ import { Attendance } from '@prisma/client'
 import { motion, useInView } from 'framer-motion'
 import moment from 'moment'
 import { useRef, useState } from 'react'
+import Balancer from 'react-wrap-balancer'
 
 import { weddingEvents } from '@/data/wedding-events'
 import useRSVP from '@/hooks/use-rsvp'
@@ -134,11 +135,13 @@ const RSVP = ({ guest }: RSVPProps) => {
                       Terimakasih atas konfirmasinya
                     </p>
                     <p>
-                      {
-                        ATTENDANCE_COPYWRITING[
-                          rsvp?.attendance ?? Attendance.NOTCONFIRMED
-                        ].text
-                      }
+                      <Balancer>
+                        {
+                          ATTENDANCE_COPYWRITING[
+                            rsvp?.attendance ?? Attendance.NOTCONFIRMED
+                          ].text
+                        }
+                      </Balancer>
                     </p>
                   </div>
                   <button
