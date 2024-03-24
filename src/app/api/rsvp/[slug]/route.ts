@@ -1,7 +1,8 @@
 import { Attendance } from '@prisma/client'
 import type { NextRequest } from 'next/server'
 
-import { findGuestBySlug, findRSVPByGuestId } from '@/lib/actions'
+import { findBySlug } from '@/actions/guests'
+import { findByGuestId } from '@/actions/rsvp'
 import { response } from '@/lib/api'
 
 export const dynamic = 'force-dynamic'
@@ -13,13 +14,13 @@ export const GET = async (
 ) => {
   try {
     const { slug } = params
-    const guest = await findGuestBySlug(slug)
+    const guest = await findBySlug(slug)
 
     if (!guest) {
       return response({ attendance: Attendance.NOTCONFIRMED })
     }
 
-    const rsvp = await findRSVPByGuestId(guest.id)
+    const rsvp = await findByGuestId(guest.id)
 
     if (!rsvp) {
       return response({ attendance: Attendance.NOTCONFIRMED })

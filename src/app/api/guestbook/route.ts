@@ -1,10 +1,7 @@
 import type { NextRequest } from 'next/server'
 
-import {
-  addGuestbook,
-  findGuestBySlug,
-  getGuestbookEntries,
-} from '@/lib/actions'
+import { findBySlug } from '@/actions/guests'
+import { addGuestbook, getGuestbookEntries } from '@/lib/actions'
 import { getErrorMessage, response } from '@/lib/api'
 
 export const dynamic = 'force-dynamic'
@@ -24,7 +21,7 @@ export const POST = async (req: NextRequest) => {
     const body = await req.json()
     const { guest: slug, message } = body
 
-    const guest = await findGuestBySlug(slug)
+    const guest = await findBySlug(slug)
 
     if (!guest) {
       return response({ message: 'Not Found' }, 404)
