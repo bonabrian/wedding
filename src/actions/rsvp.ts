@@ -1,8 +1,12 @@
+'use server'
+
 import type { Attendance, RSVP } from '@prisma/client'
 
 import prisma from '@/lib/prisma'
 
-export const findByGuestId = async (guestId?: string): Promise<RSVP | null> => {
+export const findRSVPByGuestId = async (
+  guestId?: string,
+): Promise<RSVP | null> => {
   try {
     return await prisma.rSVP.findFirst({
       where: { guestId },
@@ -21,7 +25,7 @@ export const findByGuestId = async (guestId?: string): Promise<RSVP | null> => {
   }
 }
 
-export const create = async ({
+export const createRSVP = async ({
   guestId,
   numberOfGuest,
   attendance,

@@ -1,8 +1,10 @@
+'use server'
+
 import type { Source } from '@prisma/client'
 
 import prisma from '@/lib/prisma'
 
-export const create = async (
+export const createGuestVisit = async (
   guestId?: string,
   source?: Source,
   userAgent?: string,

@@ -1,7 +1,9 @@
+'use server'
+
 import prisma from '@/lib/prisma'
 import type { Guest } from '@/types/guest'
 
-export const findAll = async (): Promise<Array<Guest>> => {
+export const findAllGuests = async (): Promise<Array<Guest>> => {
   try {
     return await prisma.guest.findMany()
   } catch (err) {
@@ -9,7 +11,7 @@ export const findAll = async (): Promise<Array<Guest>> => {
   }
 }
 
-export const findBySlug = async (slug: string): Promise<Guest | null> => {
+export const findGuestBySlug = async (slug: string): Promise<Guest | null> => {
   try {
     return await prisma.guest.findFirst({
       where: { slug },

@@ -1,6 +1,6 @@
 import type { NextRequest } from 'next/server'
 
-import { findBySlug } from '@/actions/guests'
+import { findGuestBySlug } from '@/actions/guests'
 import { getErrorMessage, response } from '@/lib/api'
 
 export const dynamic = 'force-dynamic'
@@ -12,7 +12,7 @@ export const GET = async (
 ) => {
   try {
     const { slug } = params
-    const guest = await findBySlug(slug)
+    const guest = await findGuestBySlug(slug)
 
     if (!guest) {
       return response({}, 404)

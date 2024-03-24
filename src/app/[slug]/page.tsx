@@ -1,4 +1,4 @@
-import { findBySlug } from '@/actions/guests'
+import { findGuestBySlug } from '@/actions/guests'
 import Invitation from '@/components/invitation'
 import { BASE_URL, fullURL } from '@/data/site'
 
@@ -8,7 +8,7 @@ export const generateMetadata = async ({
   params: { slug: string }
 }) => {
   let imageUrl = `${BASE_URL}/api/og`
-  const guest = await findBySlug(params.slug)
+  const guest = await findGuestBySlug(params.slug)
 
   if (guest) {
     imageUrl += `?guest=${guest.name.replaceAll('&', '@')}`

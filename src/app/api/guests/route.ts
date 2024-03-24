@@ -1,11 +1,11 @@
 import type { NextRequest } from 'next/server'
 
-import { findAll } from '@/actions/guests'
+import { findAllGuests } from '@/actions/guests'
 import { getErrorMessage, response } from '@/lib/api'
 
 export const GET = async (_req: NextRequest) => {
   try {
-    const guests = await findAll()
+    const guests = await findAllGuests()
 
     return response(guests ?? [])
   } catch (err) {

@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server'
 
-import { findBySlug } from '@/actions/guests'
-import { create } from '@/actions/rsvp'
+import { findGuestBySlug } from '@/actions/guests'
+import { createRSVP } from '@/actions/rsvp'
 import { getErrorMessage, response } from '@/lib/api'
 
 export const dynamic = 'force-dynamic'
@@ -12,13 +12,13 @@ export const POST = async (req: NextRequest) => {
     const body = await req.json()
     const { slug, numberOfGuest, attendance } = body
 
-    const guest = await findBySlug(slug)
+    const guest = await findGuestBySlug(slug)
 
     if (!guest) {
       return response({ message: 'Not Found' }, 404)
     }
 
-    await create({
+    await createRSVP({
       guestId: guest.id,
       numberOfGuest: parseInt(numberOfGuest),
       attendance,

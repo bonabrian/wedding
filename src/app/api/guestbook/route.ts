@@ -1,7 +1,7 @@
 import type { NextRequest } from 'next/server'
 
-import { findBySlug } from '@/actions/guests'
-import { addGuestbook, getGuestbookEntries } from '@/lib/actions'
+import { createGuestbook, mapGuestbookEntries } from '@/actions/guestbook'
+import { findGuestBySlug } from '@/actions/guests'
 import { getErrorMessage, response } from '@/lib/api'
 
 export const dynamic = 'force-dynamic'
@@ -9,7 +9,7 @@ export const preferredRegion = ['sin1']
 
 export const GET = async () => {
   try {
-    const entries = await getGuestbookEntries()
+    const entries = await mapGuestbookEntries()
     return response(entries)
   } catch (err) {
     return response({ message: getErrorMessage(err) }, 500)
@@ -21,13 +21,13 @@ export const POST = async (req: NextRequest) => {
     const body = await req.json()
     const { guest: slug, message } = body
 
-    const guest = await findBySlug(slug)
+    const guest = await findGuestBySlug(slug)
 
     if (!guest) {
       return response({ message: 'Not Found' }, 404)
     }
 
-    await addGuestbook(guest.id, message)
+    await createGuestbook(guest.id, message)
 
     return response({}, 201)
   } catch (err) {
