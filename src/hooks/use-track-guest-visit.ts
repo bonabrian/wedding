@@ -15,7 +15,9 @@ const useTrackGuestVisit = ({
       })
     }
 
-    addGuestVisit(slug, source)
+    if (slug !== 'bona-silvia') {
+      addGuestVisit(slug, source)
+    }
   }, [slug, source])
 }
 
