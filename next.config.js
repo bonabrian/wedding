@@ -9,7 +9,7 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     remotePatterns: [
       { hostname: 'placehold.co' },
-      { hostname: 'avatar.oxro.io' },
+      { hostname: 'ui-avatars.com' },
       { hostname: 'img.youtube.com' },
     ],
   },

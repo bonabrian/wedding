@@ -18,7 +18,7 @@ const Entry = ({ entry }: EntryProps) => {
   return (
     <div className={cn('flex items-start gap-3 font-cormorant-upright')}>
       <Image
-        src={`https://avatar.oxro.io/avatar.svg?name=${entry.guest.name}&background=random&length=1&caps=1&fontSize=250&bold=true`}
+        src={`https://ui-avatars.com/api?name=${entry.guest.name}&background=random&bold=true&rounded=true&uppercase=true&format=svg&font-size=0.33`}
         width={36}
         height={36}
         alt={entry.guest.name}
